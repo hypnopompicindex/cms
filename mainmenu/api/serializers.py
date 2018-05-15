@@ -1,25 +1,24 @@
-from mainmenu.models import ContentGroup, ContentCard
+from mainmenu.models import ContentGroup, ContentCard, ContentGallery
 from rest_framework import serializers
-from taggit.models import Tag
 
 
-class TagListSerializer(serializers.ModelSerializer):
+class ContentGallerySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Tag
-        fields = ('id', 'name')
+        model = ContentGallery
+        fields = ('title', 'priority', 'gallery_image')
 
 
 class ContentCardSerializer(serializers.ModelSerializer):
-    tags = TagListSerializer(read_only=True, many=True)
+    galleries = ContentGallerySerializer(read_only=True, many=True)
 
     class Meta:
         model = ContentCard
-        fields = ('id', 'title', 'thumbnail', 'priority', 'date_override', 'group', 'tags')
+        fields = ('id', 'title', 'active', 'priority', 'date_override', 'label', 'content_type', 'invert_content_view', 'text', 'video', 'galleries', 'secret')
 
 
 class ContentGroupSerializer(serializers.ModelSerializer):
-    items = ContentCardSerializer(read_only=True, many=True)
+    card = ContentCardSerializer(read_only=True, many=True)
 
     class Meta:
         model = ContentGroup
-        fields = '__all__'
+        fields = ('id', 'active', 'secret', 'lft', 'rght', 'tree_id', 'level', 'parent', 'card')

@@ -18,7 +18,7 @@ class ContentCardAdmin(admin.ModelAdmin):
     model = ContentCard
     filter_horizontal = ('label',)
     list_display = ('title', 'active', 'priority', 'date_override', 'content_type', 'labels')
-    list_editable = ('active', 'priority', 'date_override')
+    list_editable = ('active', 'priority')
     readonly_fields = ('image_gallery', 'thumbnail')
     inlines = [ContentGalleryInline]
 

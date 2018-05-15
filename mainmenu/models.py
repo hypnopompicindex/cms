@@ -44,7 +44,7 @@ class ContentCard(models.Model):
     secret = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ('-priority', 'date_override')
+        ordering = ('-priority', '-date_override', '-id')
 
     def __str__(self):
         return self.title
