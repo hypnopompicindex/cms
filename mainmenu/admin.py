@@ -3,44 +3,6 @@ from django_mptt_admin.admin import DjangoMpttAdmin
 from .models import ContentGroup, ContentCard, ContentLabel, ContentGallery
 from adminsortable2.admin import SortableInlineAdminMixin
 
-'''
-class ContentCardInline(SortableInlineAdminMixin, admin.StackedInline):
-    model = ContentCard
-    extra = 1
-    fieldsets = (
-        ('Content Card', {
-            'fields': ('title', 'thumbnail', 'date_override', 'content_type'),
-        }),
-        ('Image & Image Gallery', {
-            'fields': ('image', 'invert_content_view'),
-            'classes': ('image_gallery',)
-        }),
-        ('Text', {
-            'fields': ('text',),
-            'classes': ('text',)
-        }),
-        ('Text & Image Gallery', {
-            'fields': ('image', 'invert_content_view'),
-            'classes': ('text_image_gallery',)
-        }),
-        ('Video', {
-            'fields': ('video',),
-            'classes': ('video',)
-        }),
-        ('Video & Text', {
-            'fields': ('video', 'text', 'invert_content_view'),
-            'classes': ('video_text',)
-        }),
-        ('Video with Text Overlay', {
-            'fields': ('image', 'text'),
-            'classes': ('video_text_overlay',)
-        }),
-    )
-    form = ContentCardForm
-
-    class Media:
-        js = ('mainmenu/js/base.js',)
-'''
 
 @admin.register(ContentLabel)
 class ContentLabelAdmin(admin.ModelAdmin):
@@ -49,8 +11,6 @@ class ContentLabelAdmin(admin.ModelAdmin):
 
 class ContentGalleryInline(SortableInlineAdminMixin, admin.StackedInline):
     model = ContentGallery
-#    readonly_fields = ('thumbnail',)
-#    fields = ('title', 'image')
 
 
 @admin.register(ContentCard)
@@ -68,10 +28,26 @@ class ContentCardAdmin(admin.ModelAdmin):
     def labels(self, obj):
         return ",".join([str(l) for l in obj.label.all()])
 
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        qs2 = super().get_queryset(request).filter(secret=False)
+        if request.user.is_superuser:
+            return qs
+        else:
+            return qs2
+
+    def get_form(self, request, obj=None, **kwargs):
+        if request.user.is_superuser:
+            self.fields = ['title', 'active', 'priority', 'date_override', 'label', 'content_type', 'invert_content_view', 'text', 'video', 'image_gallery', 'thumbnail', 'secret']
+        else:
+            self.fields = ['title', 'active', 'priority', 'date_override', 'label', 'content_type', 'invert_content_view', 'text', 'video', 'image_gallery', 'thumbnail']
+        form = super(ContentCardAdmin,self).get_form(request, obj, **kwargs)
+        return form
+
 
 @admin.register(ContentGroup)
 class ContentGroupAdmin(DjangoMpttAdmin):
     tree_auto_open = 0
     list_display = ('item',)
     ordering = ('item',)
-#    inlines = [ContentCardInline]
+

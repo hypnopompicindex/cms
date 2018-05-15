@@ -28,28 +28,28 @@ class Sequence(models.Model):
 
     @property
     def intro_video_thumbnail(self):
-        if self.id is None:
+        if self.intro_video == '':
             return ''
         else:
             return mark_safe('<img src="/media/uploads/entice_mode/video_list/intro_video_thumbnails/%s_intro_thumbnail.png" width="200" />' % (self.id))
 
     @property
     def outro_video_thumbnail(self):
-        if self.id is None:
+        if self.outro_video == '':
             return ''
         else:
             return mark_safe('<img src="/media/uploads/entice_mode/video_list/outro_video_thumbnails/%s_outro_thumbnail.png" width="200" />' % (self.id))
 
     @property
     def touch_indicator_video_thumbnail(self):
-        if self.id is None:
+        if self.touch_indicator_video == '':
             return ''
         else:
             return mark_safe('<img src="/media/uploads/entice_mode/video_list/touch_indicator_video_thumbnails/%s_touch_thumbnail.png" width="200" />' % (self.id))
 
     @property
     def background_vignette_video_thumbnail(self):
-        if self.id is None:
+        if self.background_vignette_video == '':
             return ''
         else:
             return mark_safe('<img src="/media/uploads/entice_mode/video_list/background_vignette_video_thumbnails/%s_background_thumbnail.png" width="200" />' % (self.id))

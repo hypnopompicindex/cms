@@ -40,7 +40,8 @@ class ContentCard(models.Model):
     video = FileBrowseField("Video", max_length=200,
                             directory="main_menu/content_card/videos/",
                             extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'],
-                            blank=True)
+                            blank=True, null=True)
+    secret = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('-priority', 'date_override')
@@ -53,7 +54,7 @@ class ContentCard(models.Model):
 
     @property
     def thumbnail(self):
-        if self.id is None:
+        if self.video is None:
             return ''
         else:
             return mark_safe('<img src="/media/uploads/main_menu/content_card/thumbnails/%s_thumbnail.png" width="200" />' % (self.id))
@@ -84,7 +85,7 @@ class ContentGroup(MPTTModel):
     item = models.CharField(max_length=100, blank=True, null=True)
     active = models.BooleanField(default=False)
     secret = models.BooleanField(default=False)
-    card = models.ManyToManyField(ContentCard, blank=True, related_name='cards')
+    card = models.ManyToManyField(ContentCard, blank=True, related_name='cards', limit_choices_to={'secret': False})
     parent = TreeForeignKey(
         'self',
         null=True,

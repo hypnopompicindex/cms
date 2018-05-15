@@ -7,7 +7,8 @@
             video_text_overlay = $('.field-video_text_overlay');
             video_text = $('.field-video_text');
             invert_content_view = $('.field-invert_content_view');
-            gallery = $(".changeform-tabs-item").not(".selected")
+            gallery = $(".changeform-tabs-item").not(".selected");
+            thumbnail = $('.field-thumbnail');
 
         function toggleVerified(value) {
             if (value === '') {
@@ -18,6 +19,7 @@
                 video_text.hide();
                 invert_content_view.hide();
                 gallery.hide();
+                thumbnail.hide();
             }
             if (value === 'IMAGE_GALLERY') {
                 image_gallery.show();
@@ -27,6 +29,7 @@
                 video_text_overlay.hide();
                 video_text.hide();
                 invert_content_view.hide();
+                thumbnail.hide();
             }
             if (value === 'TEXT') {
                 text.show();
@@ -36,6 +39,7 @@
                 video_text.hide();
                 invert_content_view.hide();
                 gallery.hide();
+                thumbnail.hide();
             }
             if (value === 'TEXT_GALLERY') {
                 text.show();
@@ -45,6 +49,7 @@
                 video.hide();
                 video_text_overlay.hide();
                 video_text.hide();
+                thumbnail.hide();
             }
             if (value === 'VIDEO') {
                 video.show();
@@ -54,6 +59,7 @@
                 video_text.hide();
                 invert_content_view.hide();
                 gallery.hide();
+                thumbnail.show();
             }
             if (value === 'VIDEO_TEXT') {
                 text.show();
@@ -62,6 +68,7 @@
                 image_gallery.hide();
                 video_text_overlay.hide();
                 gallery.hide();
+                thumbnail.show();
             }
             if (value === 'VIDEO_TEXT_OVERLAY') {
                 video.show();
@@ -70,6 +77,7 @@
                 video_text.hide();
                 invert_content_view.hide();
                 gallery.hide();
+                thumbnail.show();
             }
         }
 
