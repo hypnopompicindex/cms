@@ -28,7 +28,7 @@ class ContentLabel(models.Model):
 
 
 class ContentCard(models.Model):
-    title = models.CharField(max_length=255, blank=True, null=True)
+    title = models.CharField(max_length=255)
 #    thumbnail = models.CharField(max_length=255, blank=True, null=True)
     active = models.BooleanField(default=False)
     priority = models.BooleanField(default=False)
@@ -103,9 +103,11 @@ class ContentGroup(MPTTModel):
 
 @receiver(post_save, sender=ContentCard)
 def generate_thumbnails(sender, instance, created, **kwargs):
-    if created and instance.video is not None:
+    try:
         path = BASE_DIR + '/media/' + str(instance.video)
         clip = VideoFileClip(path)
         thumbnail = str(instance.id) + '_thumbnail.png'
         clip.save_frame(thumbnail, t=(clip.duration/2))
         os.rename(BASE_DIR + '/' + str(thumbnail), BASE_DIR + "/media/uploads/main_menu/content_card/thumbnails/" + str(thumbnail))
+    except OSError:
+        pass

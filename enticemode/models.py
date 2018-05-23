@@ -14,10 +14,10 @@ class Sequence(models.Model):
     active = models.BooleanField(default=False)
     start_date = models.DateTimeField(blank=True, null=True)
     end_date = models.DateTimeField(blank=True, null=True)
-    intro_video = FileBrowseField("Intro Video", max_length=200, directory="entice_mode/video_list/intro_video/", extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'], blank=True)
-    outro_video = FileBrowseField("Outro Video", max_length=200, directory="entice_mode/video_list/outro_video/", extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'], blank=True)
-    touch_indicator_video = FileBrowseField("Touch Indicator Video", max_length=200, directory="entice_mode/video_list/touch_indicator_video/", extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'], blank=True)
-    background_vignette_video = FileBrowseField("Background Vignette Video", max_length=200, directory="entice_mode/video_list/background_vignette_video/", extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'], blank=True)
+    intro_video = FileBrowseField("Intro Video", max_length=200, directory="entice_mode/video_list/intro_video/", extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'])
+    outro_video = FileBrowseField("Outro Video", max_length=200, directory="entice_mode/video_list/outro_video/", extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'])
+    touch_indicator_video = FileBrowseField("Touch Indicator Video", max_length=200, directory="entice_mode/video_list/touch_indicator_video/", extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'])
+    background_vignette_video = FileBrowseField("Background Vignette Video", max_length=200, directory="entice_mode/video_list/background_vignette_video/", extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'])
 
     class Meta:
         ordering = ['order']
