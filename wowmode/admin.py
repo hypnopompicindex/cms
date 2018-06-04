@@ -11,6 +11,6 @@ class VideoInline(SortableInlineAdminMixin, admin.TabularInline):
 
 @admin.register(Videolist)
 class VideolistAdmin(SortableAdminMixin, admin.ModelAdmin):
-    list_display = ['title', 'order', 'active', 'start_date', 'end_date']
+    list_display = ['title', 'start_date', 'end_date',  'active']
     list_editable = ('active',)
     inlines = [VideoInline]

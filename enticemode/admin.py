@@ -5,7 +5,7 @@ from adminsortable2.admin import SortableAdminMixin
 
 @admin.register(Sequence)
 class SequenceAdmin(SortableAdminMixin, admin.ModelAdmin):
-    list_display = ['title', 'order', 'active', 'start_date', 'end_date']
+    list_display = ['title', 'active', 'start_date', 'end_date']
     list_editable = ('active',)
     readonly_fields = ('intro_video_thumbnail', 'outro_video_thumbnail', 'touch_indicator_video_thumbnail', 'background_vignette_video_thumbnail')
     fieldsets = (
