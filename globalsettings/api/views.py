@@ -1,8 +1,8 @@
-from globalsettings.models import ContentCard
+from globalsettings.models import ContentStyling
 from rest_framework import viewsets
-from globalsettings.api.serializers import ContentCardSerializer
+from globalsettings.api.serializers import ContentStylingSerializer
 
 
-class ContentCardViewSet(viewsets.ModelViewSet):
-    queryset = ContentCard.objects.all().order_by('order')
-    serializer_class = ContentCardSerializer
+class ContentStylingViewSet(viewsets.ModelViewSet):
+    queryset = ContentStyling.objects.all().order_by('order')
+    serializer_class = ContentStylingSerializer

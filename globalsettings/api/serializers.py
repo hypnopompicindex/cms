@@ -1,8 +1,8 @@
-from globalsettings.models import ContentCard
+from globalsettings.models import ContentStyling
 from rest_framework import serializers
 
 
-class ContentCardSerializer(serializers.ModelSerializer):
+class ContentStylingSerializer(serializers.ModelSerializer):
     class Meta:
-        model = ContentCard
+        model = ContentStyling
         fields = '__all__'

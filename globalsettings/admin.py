@@ -1,9 +1,20 @@
 from django.contrib import admin
-from .models import ContentCard
+from .models import ContentStyling, VideoWall
 from adminsortable2.admin import SortableAdminMixin
 
 
-@admin.register(ContentCard)
-class ContentCardAdmin(SortableAdminMixin, admin.ModelAdmin):
+@admin.register(ContentStyling)
+class ContentStylingAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ['title', 'order', 'title_colour',  'text_colour', 'background_colour']
     list_editable = ('title_colour',  'text_colour', 'background_colour')
+
+    def has_add_permission(self, request):
+        return False
+
+
+@admin.register(VideoWall)
+class VideoWallAdmin(admin.ModelAdmin):
+    list_display = ['entice_mode_proximity_distance',]
+
+#    def has_add_permission(self, request):
+#        return False

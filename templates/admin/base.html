@@ -118,6 +118,7 @@
     {{ delete_confirmation_context }}
 
     {% jet_change_form_sibling_links_enabled as show_siblings %}
+<!--
     {% if change and show_siblings %}
         <div class="changeform-navigation">
             {% spaceless %}
@@ -147,7 +148,7 @@
             {% endspaceless %}
         </div>
     {% endif %}
-
+-->
     {% jet_get_side_menu_compact as SIDE_MENU_COMPACT %}
     {% if not is_popup %}
         <div class="related-popup-container scrollable">
