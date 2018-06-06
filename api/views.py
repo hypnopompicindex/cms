@@ -9,8 +9,8 @@ from kidszone.api.serializers import VideoSerializer, ThemeSerializer
 from kidszone.models import Video, Theme
 from presentationmode.api.serializers import PresentationSerializer
 from presentationmode.models import Presentation
-from globalsettings.api.serializers import ContentStylingSerializer
-from globalsettings.models import ContentStyling
+from globalsettings.api.serializers import ContentStylingSerializer, VideoWallSerializer
+from globalsettings.models import ContentStyling, VideoWall
 
 
 class AllAPIView(ObjectMultipleModelAPIView):
@@ -21,5 +21,6 @@ class AllAPIView(ObjectMultipleModelAPIView):
         {'queryset': Theme.objects.all(), 'serializer_class': ThemeSerializer, 'label': 'Kids Zone Themes',},
         {'queryset': Video.objects.all(), 'serializer_class': VideoSerializer, 'label': 'Kids Zone Themes Video',},
         {'queryset': Presentation.objects.all(), 'serializer_class': PresentationSerializer, 'label': 'Presentation Mode',},
-        {'queryset': ContentStyling.objects.all(), 'serializer_class': ContentStylingSerializer, 'label': 'Global Settings',},
+        {'queryset': ContentStyling.objects.all(), 'serializer_class': ContentStylingSerializer, 'label': 'Content Styling',},
+        {'queryset': VideoWall.objects.all(), 'serializer_class': VideoWallSerializer, 'label': 'Video Wall',},
     )

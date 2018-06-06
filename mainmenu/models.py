@@ -23,6 +23,10 @@ CONTENT_TYPES = (
 class ContentLabel(models.Model):
     label = models.CharField(max_length=255)
 
+    class Meta:
+        verbose_name = 'Content Labels'
+        verbose_name_plural = "Content Labels"
+
     def __str__(self):
         return self.label
 
@@ -45,6 +49,8 @@ class ContentCard(models.Model):
 
     class Meta:
         ordering = ('-priority', '-date_override', '-id')
+        verbose_name = 'Content Card'
+        verbose_name_plural = "Content Cards"
 
     def __str__(self):
         return self.title
@@ -95,7 +101,8 @@ class ContentGroup(MPTTModel):
     )
 
     class Meta:
-        verbose_name_plural = 'content groups'
+        verbose_name = 'Content Groups'
+        verbose_name_plural = "Content Groups"
 
     def __str__(self):
         return self.item
