@@ -6,30 +6,30 @@
         <counts>
           <entry key="css" value="5" />
           <entry key="html" value="10" />
-          <entry key="py" value="25" />
+          <entry key="py" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="5" />
           <entry key="HTML" value="10" />
-          <entry key="Python" value="25" />
+          <entry key="Python" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="124" />
           <entry key="html" value="131" />
-          <entry key="py" value="382" />
-          <entry key="txt" value="65" />
+          <entry key="py" value="429" />
+          <entry key="txt" value="95" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="124" />
           <entry key="HTML" value="131" />
-          <entry key="PLAIN_TEXT" value="65" />
-          <entry key="Python" value="382" />
+          <entry key="PLAIN_TEXT" value="95" />
+          <entry key="Python" value="429" />
         </counts>
       </usages-collector>
     </session>

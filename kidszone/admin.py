@@ -5,7 +5,7 @@ from adminsortable2.admin import SortableAdminMixin
 
 @admin.register(Video)
 class VideoAdmin(SortableAdminMixin, admin.ModelAdmin):
-    list_display = ['title', 'video', 'active']
+    list_display = ['title', 'image', 'video', 'active']
     list_editable = ('active',)
     readonly_fields = ('thumbnail',)
 

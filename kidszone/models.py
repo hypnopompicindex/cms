@@ -11,6 +11,8 @@ from cms.settings import BASE_DIR
 class Video(models.Model):
     title = models.CharField(max_length=255)
     video = FileBrowseField("Video", max_length=200, directory="kids_zone/videos/", extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'])
+    image = FileBrowseField("Image", max_length=200, directory="kids_zone/images/",
+                            extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'])
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
     active = models.BooleanField(default=False)
 
@@ -31,8 +33,8 @@ class Video(models.Model):
 
 class Theme(models.Model):
     theme = models.CharField(max_length=255)
-    background_image = FileBrowseField("Background Image", max_length=200, directory="kids_zone/themes/background_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True)
-    bubble_image = FileBrowseField("Bubble Image", max_length=200, directory="kids_zone/themes/bubble_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True)
+    background_image = FileBrowseField("Background Image", max_length=200, directory="kids_zone/themes/background_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'])
+    bubble_image = FileBrowseField("Bubble Image", max_length=200, directory="kids_zone/themes/bubble_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'])
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
     active = models.BooleanField(default=False)
 
