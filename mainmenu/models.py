@@ -88,7 +88,7 @@ class ContentGallery(models.Model):
 
 
 class ContentGroup(MPTTModel):
-    item = models.CharField(max_length=100, blank=True, null=True)
+    title = models.CharField(max_length=100, blank=True, null=True)
     active = models.BooleanField(default=False)
     secret = models.BooleanField(default=False)
     card = models.ManyToManyField(ContentCard, blank=True, related_name='cards', limit_choices_to={'secret': False})
@@ -105,7 +105,7 @@ class ContentGroup(MPTTModel):
         verbose_name_plural = "Content Groups"
 
     def __str__(self):
-        return self.item
+        return self.title
 
 
 @receiver(post_save, sender=ContentCard)

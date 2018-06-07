@@ -48,6 +48,6 @@ class ContentCardAdmin(admin.ModelAdmin):
 @admin.register(ContentGroup)
 class ContentGroupAdmin(DjangoMpttAdmin):
     tree_auto_open = 0
-    list_display = ('item',)
-    ordering = ('item',)
+    list_display = ('title',)
+    ordering = ('title',)
 
