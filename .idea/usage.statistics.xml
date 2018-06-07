@@ -5,31 +5,31 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="5" />
-          <entry key="html" value="10" />
-          <entry key="py" value="32" />
+          <entry key="html" value="16" />
+          <entry key="py" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="5" />
-          <entry key="HTML" value="10" />
-          <entry key="Python" value="32" />
+          <entry key="HTML" value="16" />
+          <entry key="Python" value="35" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="124" />
-          <entry key="html" value="131" />
-          <entry key="py" value="429" />
-          <entry key="txt" value="95" />
+          <entry key="html" value="154" />
+          <entry key="py" value="450" />
+          <entry key="txt" value="104" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="124" />
-          <entry key="HTML" value="131" />
-          <entry key="PLAIN_TEXT" value="95" />
-          <entry key="Python" value="429" />
+          <entry key="HTML" value="154" />
+          <entry key="PLAIN_TEXT" value="104" />
+          <entry key="Python" value="450" />
         </counts>
       </usages-collector>
     </session>
