@@ -36,6 +36,7 @@ class ContentCard(models.Model):
 #    thumbnail = models.CharField(max_length=255, blank=True, null=True)
     active = models.BooleanField(default=False)
     priority = models.BooleanField(default=False)
+    creation_date = models.DateTimeField(auto_now_add=True)
     date_override = models.DateTimeField(blank=True, null=True)
     label = models.ManyToManyField(ContentLabel, blank=True, related_name='labels')
     content_type = models.CharField(max_length=255, choices=CONTENT_TYPES, blank=True, null=True)
@@ -45,7 +46,7 @@ class ContentCard(models.Model):
                             directory="main_menu/content_card/videos/",
                             extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'],
                             blank=True, null=True)
-    secret = models.BooleanField(default=False)
+#    secret = models.BooleanField(default=False)
 
     class Meta:
         ordering = ('-priority', '-date_override', '-id')

@@ -30,7 +30,7 @@ class ContentCardAdmin(admin.ModelAdmin):
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
-        qs2 = super().get_queryset(request).filter(secret=False)
+        qs2 = super().get_queryset(request)
         if request.user.is_superuser:
             return qs
         else:
@@ -38,7 +38,7 @@ class ContentCardAdmin(admin.ModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         if request.user.is_superuser:
-            self.fields = ['title', 'active', 'priority', 'date_override', 'label', 'content_type', 'invert_content_view', 'text', 'video', 'image_gallery', 'thumbnail', 'secret']
+            self.fields = ['title', 'active', 'priority', 'date_override', 'label', 'content_type', 'invert_content_view', 'text', 'video', 'image_gallery', 'thumbnail']
         else:
             self.fields = ['title', 'active', 'priority', 'date_override', 'label', 'content_type', 'invert_content_view', 'text', 'video', 'image_gallery', 'thumbnail']
         form = super(ContentCardAdmin,self).get_form(request, obj, **kwargs)
