@@ -6,7 +6,7 @@ from adminsortable2.admin import SortableAdminMixin, SortableInlineAdminMixin
 class VideoInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Video
     readonly_fields = ('thumbnail',)
-    fields = ('order', 'title', 'file', 'thumbnail')
+    fields = ('order', 'title', 'thumbnail', 'file')
 
 
 @admin.register(Videolist)

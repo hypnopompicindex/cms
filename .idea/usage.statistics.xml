@@ -4,28 +4,32 @@
     <session id="-2048024314">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
+          <entry key="css" value="5" />
           <entry key="html" value="10" />
-          <entry key="py" value="23" />
+          <entry key="py" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
+          <entry key="CSS" value="5" />
           <entry key="HTML" value="10" />
-          <entry key="Python" value="23" />
+          <entry key="Python" value="25" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="17" />
-          <entry key="py" value="372" />
-          <entry key="txt" value="56" />
+          <entry key="css" value="124" />
+          <entry key="html" value="131" />
+          <entry key="py" value="382" />
+          <entry key="txt" value="65" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="17" />
-          <entry key="PLAIN_TEXT" value="56" />
-          <entry key="Python" value="372" />
+          <entry key="CSS" value="124" />
+          <entry key="HTML" value="131" />
+          <entry key="PLAIN_TEXT" value="65" />
+          <entry key="Python" value="382" />
         </counts>
       </usages-collector>
     </session>

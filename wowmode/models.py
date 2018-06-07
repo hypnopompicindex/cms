@@ -13,8 +13,8 @@ class Videolist(models.Model):
 #    description = models.TextField()
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
     active = models.BooleanField(default=False)
-    start_date = models.DateTimeField(blank=True, null=True)
-    end_date = models.DateTimeField(blank=True, null=True)
+    start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
 
     class Meta:
         ordering = ['order']

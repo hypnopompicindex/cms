@@ -17,6 +17,14 @@
 
 {% block extrastyle %}
     <link rel="stylesheet" type="text/css" href="{% static "admin/css/overrides.css" %}" />
+    <style>
+        div.sortoptions > a.sortremove {
+            visibility: hidden;
+        }
+        .field-thumbnail label {
+        	font-size: 0px;
+    	}
+	</style>
 {% endblock %}
 {% if LANGUAGE_BIDI %}<link rel="stylesheet" type="text/css" href="{% block stylesheet_rtl %}{% static "admin/css/rtl.css" %}{% endblock %}" />{% endif %}
 {% jet_get_date_format as date_format %}
@@ -118,8 +126,8 @@
     {{ delete_confirmation_context }}
 
     {% jet_change_form_sibling_links_enabled as show_siblings %}
-<!--
-    {% if change and show_siblings %}
+
+    {% if change and show_siblings %} {{ sibling.label }}
         <div class="changeform-navigation">
             {% spaceless %}
                 {% jet_previous_object as sibling %}
@@ -148,7 +156,7 @@
             {% endspaceless %}
         </div>
     {% endif %}
--->
+
     {% jet_get_side_menu_compact as SIDE_MENU_COMPACT %}
     {% if not is_popup %}
         <div class="related-popup-container scrollable">
