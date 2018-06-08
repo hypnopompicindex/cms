@@ -13,7 +13,7 @@ class ContentCardSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ContentCard
-        fields = ('id', 'title', 'creation_date', 'active', 'date_override', 'label', 'content_type', 'invert_content_view', 'text_header', 'text', 'video', 'text_position', 'gradient_overlay', 'galleries')
+        fields = ('id', 'title', 'creation_date', 'active', 'date_override', 'content_type', 'invert_content_view', 'text_header', 'text', 'video', 'text_position', 'gradient_overlay', 'galleries')
 
 
 class ContentGroupSerializer(serializers.ModelSerializer):
