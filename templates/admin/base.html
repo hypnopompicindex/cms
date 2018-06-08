@@ -111,6 +111,7 @@
     {% endblock messages %}
 
     <!-- Content -->
+    <span style="font-size:30px;padding-left:1.42857rem;">{{ title }}</span>
     <div id="content" class="{% block coltype %}colM{% endblock %}">
         {% block pretitle %}{% endblock %}
         {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
