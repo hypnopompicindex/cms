@@ -41,7 +41,7 @@ class ContentCard(models.Model):
     title = models.CharField(max_length=255)
 #    thumbnail = models.CharField(max_length=255, blank=True, null=True)
     active = models.BooleanField(default=False)
-    priority = models.BooleanField(default=False)
+#    priority = models.BooleanField(default=False)
     creation_date = models.DateTimeField(auto_now_add=True)
     date_override = models.DateTimeField(blank=True, null=True)
     label = models.ManyToManyField(ContentLabel, blank=True, related_name='labels')
@@ -58,7 +58,7 @@ class ContentCard(models.Model):
 #    secret = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ('-priority', '-date_override', '-id')
+        ordering = ('-date_override', 'creation_date')
         verbose_name = 'Content Card'
         verbose_name_plural = "Content Cards"
 

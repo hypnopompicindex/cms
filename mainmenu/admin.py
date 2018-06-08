@@ -17,8 +17,8 @@ class ContentGalleryInline(SortableInlineAdminMixin, admin.StackedInline):
 class ContentCardAdmin(admin.ModelAdmin):
     model = ContentCard
     filter_horizontal = ('label',)
-    list_display = ('title', 'active', 'priority', 'date_override', 'content_type', 'labels')
-    list_editable = ('active', 'priority')
+    list_display = ('title', 'content_type', 'date_override', 'active')
+    list_editable = ('active',)
     readonly_fields = ('image_gallery', 'thumbnail')
     inlines = [ContentGalleryInline]
 
@@ -38,9 +38,9 @@ class ContentCardAdmin(admin.ModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         if request.user.is_superuser:
-            self.fields = ['title', 'active', 'priority', 'date_override', 'label', 'content_type', 'invert_content_view', 'text_header', 'text', 'video', 'image_gallery', 'thumbnail', 'text_position', 'gradient_overlay']
+            self.fields = ['title', 'active', 'date_override', 'label', 'content_type', 'invert_content_view', 'text_header', 'text', 'video', 'image_gallery', 'thumbnail', 'text_position', 'gradient_overlay']
         else:
-            self.fields = ['title', 'active', 'priority', 'date_override', 'label', 'content_type', 'invert_content_view', 'text_header', 'text', 'video', 'image_gallery', 'thumbnail', 'text_position', 'gradient_overlay']
+            self.fields = ['title', 'active', 'date_override', 'label', 'content_type', 'invert_content_view', 'text_header', 'text', 'video', 'image_gallery', 'thumbnail', 'text_position', 'gradient_overlay']
         form = super(ContentCardAdmin,self).get_form(request, obj, **kwargs)
         return form
 
