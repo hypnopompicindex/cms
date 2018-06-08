@@ -17,6 +17,12 @@ CONTENT_TYPES = (
     ('VIDEO', 'Video'),
     ('VIDEO_TEXT', 'Video and Text'),
     ('VIDEO_TEXT_OVERLAY', 'Video with Text Overlay'),
+    ('STOCK CARD', 'Stock Card'),
+)
+
+POSITION = (
+    ('LEFT', 'Left'),
+    ('RIGHT', 'Right'),
 )
 
 
@@ -40,7 +46,10 @@ class ContentCard(models.Model):
     date_override = models.DateTimeField(blank=True, null=True)
     label = models.ManyToManyField(ContentLabel, blank=True, related_name='labels')
     content_type = models.CharField(max_length=255, choices=CONTENT_TYPES, blank=True, null=True)
+    text_position = models.CharField(max_length=255, choices=POSITION, blank=True, null=True)
+    gradient_overlay = FileBrowseField("Gradient Overlay", max_length=200, directory="main_menu/content_card/gradient_overlay/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True)
     invert_content_view = models.BooleanField(default=False)
+    text_header = models.CharField(max_length=255, blank=True, null=True)
     text = RichTextField(blank=True, null=True)
     video = FileBrowseField("Video", max_length=200,
                             directory="main_menu/content_card/videos/",
@@ -92,7 +101,7 @@ class ContentGroup(MPTTModel):
     title = models.CharField(max_length=100, blank=True, null=True)
     active = models.BooleanField(default=False)
     secret = models.BooleanField(default=False)
-    card = models.ManyToManyField(ContentCard, blank=True, related_name='cards', limit_choices_to={'secret': False})
+    card = models.ManyToManyField(ContentCard, blank=True, related_name='cards')
     parent = TreeForeignKey(
         'self',
         null=True,

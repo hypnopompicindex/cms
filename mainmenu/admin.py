@@ -38,9 +38,9 @@ class ContentCardAdmin(admin.ModelAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         if request.user.is_superuser:
-            self.fields = ['title', 'active', 'priority', 'date_override', 'label', 'content_type', 'invert_content_view', 'text', 'video', 'image_gallery', 'thumbnail']
+            self.fields = ['title', 'active', 'priority', 'date_override', 'label', 'content_type', 'invert_content_view', 'text_header', 'text', 'video', 'image_gallery', 'thumbnail', 'text_position', 'gradient_overlay']
         else:
-            self.fields = ['title', 'active', 'priority', 'date_override', 'label', 'content_type', 'invert_content_view', 'text', 'video', 'image_gallery', 'thumbnail']
+            self.fields = ['title', 'active', 'priority', 'date_override', 'label', 'content_type', 'invert_content_view', 'text_header', 'text', 'video', 'image_gallery', 'thumbnail', 'text_position', 'gradient_overlay']
         form = super(ContentCardAdmin,self).get_form(request, obj, **kwargs)
         return form
 
