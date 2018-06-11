@@ -41,10 +41,10 @@ class ContentCard(models.Model):
     title = models.CharField(max_length=255)
 #    thumbnail = models.CharField(max_length=255, blank=True, null=True)
     active = models.BooleanField(default=False)
-#    priority = models.BooleanField(default=False)
+    priority = models.BooleanField(default=False)
     creation_date = models.DateTimeField(auto_now_add=True)
     date_override = models.DateTimeField(blank=True, null=True)
-#    label = models.ManyToManyField(ContentLabel, blank=True, related_name='labels')
+    label = models.ManyToManyField(ContentLabel, blank=True, related_name='labels')
     content_type = models.CharField(max_length=255, choices=CONTENT_TYPES, blank=True, null=True)
     text_position = models.CharField(max_length=255, choices=POSITION, blank=True, null=True)
     gradient_overlay = FileBrowseField("Gradient Overlay", max_length=200, directory="main_menu/content_card/gradient_overlay/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True)
@@ -65,7 +65,7 @@ class ContentCard(models.Model):
     def __str__(self):
         return self.title
 
-    def image_gallery(selfself):
+    def image_gallery(self):
         return 'To add an Image, click the Gallery link at the top of the page'
 
     @property
@@ -99,9 +99,7 @@ class ContentGallery(models.Model):
 
 class ContentGroup(MPTTModel):
     title = models.CharField(max_length=100, blank=True, null=True)
-    active = models.BooleanField(default=False)
-    secret = models.BooleanField(default=False)
-    card = models.ManyToManyField(ContentCard, blank=True, related_name='cards')
+    card = models.ManyToManyField(ContentCard, blank=True, through='ContentGroupCard')
     parent = TreeForeignKey(
         'self',
         null=True,
@@ -109,6 +107,8 @@ class ContentGroup(MPTTModel):
         related_name='children',
         on_delete=models.CASCADE
     )
+    active = models.BooleanField(default=False)
+    secret = models.BooleanField(default=False)
 
     class Meta:
         verbose_name = 'Content Groups'
@@ -116,6 +116,23 @@ class ContentGroup(MPTTModel):
 
     def __str__(self):
         return self.title
+
+
+class ContentGroupCard(models.Model):
+    title = models.CharField(max_length=255)
+    content_card = models.ForeignKey(ContentCard, blank=True, null=True, on_delete=models.DO_NOTHING)
+    content_group = models.ForeignKey(ContentGroup, blank=True, on_delete=models.DO_NOTHING)
+    priority = models.BooleanField(default=False)
+    label = models.ManyToManyField(ContentLabel, blank=True, related_name='group_card_labels')
+    creation_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ('creation_date',)
+        verbose_name = 'Content Card'
+        verbose_name_plural = "Content Cards"
+
+    def __str__(self):
+        return self.content_card
 
 
 @receiver(post_save, sender=ContentCard)

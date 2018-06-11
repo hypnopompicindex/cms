@@ -22,7 +22,7 @@
                 video_text_overlay.hide();
                 video_text.hide();
                 invert_content_view.hide();
-                gallery.hide();
+                gallery.show();
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
@@ -48,7 +48,7 @@
                 video_text_overlay.hide();
                 video_text.hide();
                 invert_content_view.hide();
-                gallery.hide();
+                gallery.show();
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
@@ -74,7 +74,7 @@
                 video_text_overlay.hide();
                 video_text.hide();
                 invert_content_view.hide();
-                gallery.hide();
+                gallery.show();
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.show();
@@ -86,7 +86,7 @@
                 invert_content_view.show();
                 image_gallery.hide();
                 video_text_overlay.hide();
-                gallery.hide();
+                gallery.show();
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.show();
@@ -98,7 +98,7 @@
                 image_gallery.hide();
                 video_text.hide();
                 invert_content_view.hide();
-                gallery.hide();
+                gallery.show();
                 text_position.show();
                 gradient_overlay.show();
                 thumbnail.show();
