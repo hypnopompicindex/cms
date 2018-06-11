@@ -29,7 +29,7 @@ class CustomIndexDashboard(Dashboard):
             _('File Manager'),
             children=[
                 {
-                    'title': _('File Browser'),
+                    'title': _('File Manager'),
                     'url': '/admin/filebrowser/browse/',
                     'external': True,
                 },

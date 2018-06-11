@@ -8,7 +8,8 @@ from moviepy.editor import VideoFileClip
 import os
 from django.utils.safestring import mark_safe
 from cms.settings import BASE_DIR
-
+from django.utils.html import escape
+from django.http import HttpResponse
 
 CONTENT_TYPES = (
     ('IMAGE_GALLERY', 'Image Gallery'),
@@ -120,10 +121,13 @@ class ContentGroup(MPTTModel):
     def __str__(self):
         return self.title
 
+    @property
     def subgroups(self):
-        x = ", ".join([str(p) for p in self.children.all()])
+#        x = ([mark_safe('<a href="/mainmenu/contentgroup/%s/change/">%s</a>' % (p.id, p)) for p in self.children.all()])
+#        return x
+        x = ', '.join(([str(p) for p in self.children.all()]))
+#        y = ([str(p.id) for p in self.children.all()])
         return x
-
 
 class ContentGroupCard(models.Model):
     title = models.CharField(max_length=255)
