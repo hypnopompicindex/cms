@@ -1,7 +1,7 @@
 (function($) {
     $(function() {
         var selectField = $('#id_content_type'),
-            image_gallery = $('.field-image_gallery');
+            image_gallery = $('a[href="#/tab/inline_0/"]');
             text = $('.field-text');
             text_header = $('.field-text_header');
             video = $('.field-video');
@@ -12,6 +12,7 @@
             text_position = $('.field-text_position');
             gradient_overlay = $('.field-gradient_overlay');
             thumbnail = $('.field-thumbnail');
+            linksToCards = $('a[href="#/tab/inline_1/"]');
 
         function toggleVerified(value) {
             if (value === '') {
@@ -22,10 +23,11 @@
                 video_text_overlay.hide();
                 video_text.hide();
                 invert_content_view.hide();
-                gallery.show();
+                gallery.hide();
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
+                linksToCards.show();
             }
             if (value === 'IMAGE_GALLERY') {
                 image_gallery.show();
@@ -39,6 +41,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
+                linksToCards.show();
             }
             if (value === 'TEXT') {
                 text.show();
@@ -52,6 +55,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
+                linksToCards.show();
             }
             if (value === 'TEXT_GALLERY') {
                 text.show();
@@ -65,6 +69,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
+                linksToCards.show();
             }
             if (value === 'VIDEO') {
                 video.show();
@@ -78,6 +83,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.show();
+                linksToCards.show();
             }
             if (value === 'VIDEO_TEXT') {
                 text.show();
@@ -90,6 +96,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.show();
+                linksToCards.show();
             }
             if (value === 'VIDEO_TEXT_OVERLAY') {
                 video.show();
@@ -102,6 +109,7 @@
                 text_position.show();
                 gradient_overlay.show();
                 thumbnail.show();
+                linksToCards.show();
             }
         }
 
