@@ -23,10 +23,15 @@ class ContentCardGroupInline(admin.TabularInline):
 class ContentCardAdmin(admin.ModelAdmin):
     model = ContentCard
 #    filter_horizontal = ('label',)
-    list_display = ('title', 'content_type', 'date_override', 'active')
+    list_display = ('title', 'content_type', 'date_override', 'active', 'parent')
     list_editable = ('active',)
-    readonly_fields = ('image_gallery', 'thumbnail')
+    readonly_fields = ('image_gallery', 'thumbnail', 'parent')
     inlines = [ContentGalleryInline, ContentCardGroupInline]
+    fieldsets = (
+        ('General', {
+            'fields': ('title', 'parent', 'date_override', 'content_type', 'text_position', 'gradient_overlay', 'invert_content_view', 'text_header', 'text', 'video'),
+        }),
+    )
 
     class Media:
         js = ('mainmenu/js/base.js',)

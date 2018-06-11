@@ -75,6 +75,9 @@ class ContentCard(models.Model):
         else:
             return mark_safe('<img src="/media/uploads/main_menu/content_card/thumbnails/%s_thumbnail.png" width="200" />' % (self.id))
 
+    def parent(self):
+        return ", ".join([str(p) for p in self.contentgroup_set.all()])
+
 
 class ContentGallery(models.Model):
     gallery = models.ForeignKey(ContentCard,
@@ -132,7 +135,7 @@ class ContentGroupCard(models.Model):
         verbose_name_plural = "Content Cards"
 
     def __str__(self):
-        return self.content_card
+        return self.title
 
 
 @receiver(post_save, sender=ContentCard)
