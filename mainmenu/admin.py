@@ -66,7 +66,13 @@ class ContentGroupCardInline(admin.TabularInline):
 class ContentGroupAdmin(DjangoMpttAdmin):
     tree_auto_open = 0
     list_display = ('title',)
+    readonly_fields = ('subgroups',)
     ordering = ('title',)
+    fieldsets = (
+        ('General', {
+            'fields': ('title', 'parent', 'subgroups', 'active', 'secret'),
+        }),
+    )
     inlines = [
         ContentGroupCardInline,
     ]

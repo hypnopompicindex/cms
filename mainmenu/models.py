@@ -120,6 +120,10 @@ class ContentGroup(MPTTModel):
     def __str__(self):
         return self.title
 
+    def subgroups(self):
+        x = ", ".join([str(p) for p in self.children.all()])
+        return x
+
 
 class ContentGroupCard(models.Model):
     title = models.CharField(max_length=255)

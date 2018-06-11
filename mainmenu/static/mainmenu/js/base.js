@@ -1,7 +1,7 @@
 (function($) {
     $(function() {
         var selectField = $('#id_content_type'),
-            image_gallery = $('a[href="#/tab/inline_0/"]');
+            image_gallery = $('a[href="#/tab/inline_0/"].changeform-tabs-item-link');
             text = $('.field-text');
             text_header = $('.field-text_header');
             video = $('.field-video');
