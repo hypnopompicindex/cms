@@ -39,6 +39,10 @@ class Video(models.Model):
         return self.file.filename_root.replace('_', ' ').title()
 
     @property
+    def file_path(self):
+        return self.file.path
+
+    @property
     def thumbnail(self):
         if self.id is None:
             return ''
