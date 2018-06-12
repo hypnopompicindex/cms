@@ -10,6 +10,8 @@ from django.utils.safestring import mark_safe
 from cms.settings import BASE_DIR
 from django.utils.html import escape
 from django.http import HttpResponse
+from django.core.validators import MaxValueValidator, MinValueValidator
+
 
 CONTENT_TYPES = (
     ('IMAGE_GALLERY', 'Image Gallery'),
@@ -42,7 +44,7 @@ class ContentCard(models.Model):
     title = models.CharField(max_length=255)
 #    thumbnail = models.CharField(max_length=255, blank=True, null=True)
     active = models.BooleanField(default=False)
-    priority = models.BooleanField(default=False)
+    priority = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
     creation_date = models.DateTimeField(auto_now_add=True)
     date_override = models.DateTimeField(blank=True, null=True)
     label = models.ManyToManyField(ContentLabel, blank=True, related_name='labels')
@@ -129,11 +131,12 @@ class ContentGroup(MPTTModel):
 #        y = ([str(p.id) for p in self.children.all()])
         return x
 
+
 class ContentGroupCard(models.Model):
     title = models.CharField(max_length=255)
     content_card = models.ForeignKey(ContentCard, blank=True, null=True, on_delete=models.DO_NOTHING)
     content_group = models.ForeignKey(ContentGroup, blank=True, on_delete=models.DO_NOTHING)
-    priority = models.BooleanField(default=False)
+    priority = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
     label = models.ManyToManyField(ContentLabel, blank=True, related_name='group_card_labels')
     creation_date = models.DateTimeField(auto_now_add=True)
 

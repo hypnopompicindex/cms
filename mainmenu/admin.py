@@ -70,7 +70,7 @@ class ContentGroupAdmin(DjangoMpttAdmin):
     ordering = ('title',)
     fieldsets = (
         ('General', {
-            'fields': ('title', 'parent', 'subgroups', 'active', 'secret'),
+            'fields': ('title', 'parent', 'subgroups', 'secret', 'active'),
         }),
     )
     inlines = [
