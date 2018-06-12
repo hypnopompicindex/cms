@@ -5,12 +5,12 @@ from adminsortable2.admin import SortableAdminMixin
 
 @admin.register(Sequence)
 class SequenceAdmin(SortableAdminMixin, admin.ModelAdmin):
-    list_display = ['title', 'active', 'start_date', 'end_date']
+    list_display = ['title', 'start_date', 'end_date', 'active']
     list_editable = ('active',)
-    readonly_fields = ('intro_video_thumbnail', 'outro_video_thumbnail', 'touch_indicator_video_thumbnail', 'background_vignette_video_thumbnail')
+    readonly_fields = ('intro_video_thumbnail', 'outro_video_thumbnail', 'touch_indicator_video_thumbnail', 'background_vignette_video_thumbnail', 'intro_video_path', 'outro_video_path', 'touch_indicator_video_path', 'background_vignette_video_path')
     fieldsets = (
         ('Entice Mode', {
-            'fields': ('title', 'active', 'start_date', 'end_date', 'intro_video', 'intro_video_thumbnail', 'outro_video', 'outro_video_thumbnail', 'touch_indicator_video', 'touch_indicator_video_thumbnail', 'background_vignette_video', 'background_vignette_video_thumbnail'),
+            'fields': ('title', 'start_date', 'end_date', 'active', 'intro_video',  'intro_video_path', 'intro_video_thumbnail', 'outro_video', 'outro_video_path', 'outro_video_thumbnail', 'touch_indicator_video', 'touch_indicator_video_path', 'touch_indicator_video_thumbnail', 'background_vignette_video', 'background_vignette_video_path', 'background_vignette_video_thumbnail'),
         }),
 
     )

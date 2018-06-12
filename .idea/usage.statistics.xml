@@ -7,7 +7,7 @@
           <entry key="css" value="8" />
           <entry key="html" value="38" />
           <entry key="js" value="5" />
-          <entry key="py" value="74" />
+          <entry key="py" value="80" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
@@ -15,7 +15,7 @@
           <entry key="CSS" value="8" />
           <entry key="HTML" value="38" />
           <entry key="JavaScript" value="5" />
-          <entry key="Python" value="74" />
+          <entry key="Python" value="80" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
@@ -23,8 +23,8 @@
           <entry key="css" value="126" />
           <entry key="html" value="397" />
           <entry key="js" value="142" />
-          <entry key="py" value="1953" />
-          <entry key="txt" value="408" />
+          <entry key="py" value="1998" />
+          <entry key="txt" value="423" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -32,8 +32,8 @@
           <entry key="CSS" value="126" />
           <entry key="HTML" value="397" />
           <entry key="JavaScript" value="142" />
-          <entry key="PLAIN_TEXT" value="408" />
-          <entry key="Python" value="1953" />
+          <entry key="PLAIN_TEXT" value="423" />
+          <entry key="Python" value="1998" />
         </counts>
       </usages-collector>
     </session>
