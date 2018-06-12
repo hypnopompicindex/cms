@@ -30,6 +30,14 @@ class Video(models.Model):
         else:
             return mark_safe('<img src="/media/uploads/kids_zone/thumbnails/%s_thumbnail.png" width="200" />' % (self.id))
 
+    @property
+    def video_path(self):
+        return self.video.path
+
+    @property
+    def image_path(self):
+        return self.image.path
+
 
 class Theme(models.Model):
     theme = models.CharField(max_length=255)
@@ -44,6 +52,14 @@ class Theme(models.Model):
 
     def __str__(self):
         return self.theme
+
+    @property
+    def background_image_path(self):
+        return self.background_image.path
+
+    @property
+    def bubble_image_path(self):
+        return self.background_image.path
 
 
 @receiver(post_save, sender=Video)
