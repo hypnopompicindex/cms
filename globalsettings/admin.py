@@ -5,8 +5,10 @@ from adminsortable2.admin import SortableAdminMixin
 
 @admin.register(ContentStyling)
 class ContentStylingAdmin(SortableAdminMixin, admin.ModelAdmin):
-    list_display = ['title', 'order', 'title_colour',  'text_colour', 'background_colour']
+    list_display = ['order', 'title_colour',  'text_colour', 'background_colour']
     list_editable = ('title_colour',  'text_colour', 'background_colour')
+    readonly_fields = ('image_path',)
+    fields = ('title_colour', 'text_colour', 'background_colour', 'image', 'image_path')
 
     def has_add_permission(self, request):
         return False
