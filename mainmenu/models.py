@@ -76,10 +76,14 @@ class ContentCard(models.Model):
         if self.video is None:
             return ''
         else:
-            return mark_safe('<img src="/media/uploads/main_menu/content_card/thumbnails/%s_thumbnail.png" width="200" />' % (self.id))
+            return mark_safe('<a href="/media/uploads/main_menu/content_card/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/main_menu/content_card/thumbnails/%s_thumbnail.png" width="200" /></a>' % (self.id, self.id))
 
     def parent(self):
         return ", ".join([str(p) for p in self.contentgroup_set.all()])
+
+    @property
+    def video_path(self):
+        return self.video.path
 
 
 class ContentGallery(models.Model):
@@ -101,6 +105,10 @@ class ContentGallery(models.Model):
 
     def __str__(self):
         return self.title
+
+    @property
+    def image_path(self):
+        return self.gallery_image.path
 
 
 class ContentGroup(MPTTModel):

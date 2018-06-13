@@ -11,25 +11,29 @@ class ContentLabelAdmin(admin.ModelAdmin):
 
 class ContentGalleryInline(SortableInlineAdminMixin, admin.StackedInline):
     model = ContentGallery
+    readonly_fields = ('image_path',)
+    fields = ('gallery_image', 'image_path')
 
 
 class ContentCardGroupInline(admin.TabularInline):
     model = ContentGroupCard
     extra = 1
     fields = ('content_group', 'label', 'priority')
+    verbose_name = 'Content Group'
+    verbose_name_plural = "Content Group"
 
 
 @admin.register(ContentCard)
 class ContentCardAdmin(admin.ModelAdmin):
     model = ContentCard
 #    filter_horizontal = ('label',)
-    list_display = ('title', 'content_type', 'date_override', 'active', 'parent')
+    list_display = ('title', 'content_type', 'date_override', 'parent', 'active')
     list_editable = ('active',)
-    readonly_fields = ('image_gallery', 'thumbnail', 'parent')
+    readonly_fields = ('image_gallery', 'thumbnail', 'parent', 'video_path')
     inlines = [ContentGalleryInline, ContentCardGroupInline]
     fieldsets = (
         ('General', {
-            'fields': ('title', 'parent', 'date_override', 'content_type', 'text_position', 'gradient_overlay', 'invert_content_view', 'text_header', 'text', 'video'),
+            'fields': ('title', 'parent', 'date_override', 'active', 'content_type', 'text_position', 'gradient_overlay', 'invert_content_view', 'text_header', 'text', 'video', 'thumbnail', 'video_path'),
         }),
     )
 

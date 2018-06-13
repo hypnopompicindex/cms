@@ -5,35 +5,35 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="8" />
-          <entry key="html" value="65" />
-          <entry key="js" value="5" />
-          <entry key="py" value="107" />
+          <entry key="html" value="66" />
+          <entry key="js" value="6" />
+          <entry key="py" value="115" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="8" />
-          <entry key="HTML" value="65" />
-          <entry key="JavaScript" value="5" />
-          <entry key="Python" value="107" />
+          <entry key="HTML" value="66" />
+          <entry key="JavaScript" value="6" />
+          <entry key="Python" value="115" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="126" />
-          <entry key="html" value="599" />
-          <entry key="js" value="142" />
-          <entry key="py" value="2175" />
-          <entry key="txt" value="475" />
+          <entry key="html" value="644" />
+          <entry key="js" value="151" />
+          <entry key="py" value="2224" />
+          <entry key="txt" value="501" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="126" />
-          <entry key="HTML" value="599" />
-          <entry key="JavaScript" value="142" />
-          <entry key="PLAIN_TEXT" value="475" />
-          <entry key="Python" value="2175" />
+          <entry key="HTML" value="644" />
+          <entry key="JavaScript" value="151" />
+          <entry key="PLAIN_TEXT" value="501" />
+          <entry key="Python" value="2224" />
         </counts>
       </usages-collector>
     </session>

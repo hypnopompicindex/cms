@@ -62,11 +62,11 @@
                 text_header.show();
                 image_gallery.show();
                 gallery.show();
-                invert_content_view.show();
+                invert_content_view.hide();
                 video.hide();
                 video_text_overlay.hide();
                 video_text.hide();
-                text_position.hide();
+                text_position.show();
                 gradient_overlay.hide();
                 thumbnail.hide();
                 linksToCards.show();
@@ -89,11 +89,11 @@
                 text.show();
                 text_header.show();
                 video.show();
-                invert_content_view.show();
+                invert_content_view.hide();
                 image_gallery.hide();
                 video_text_overlay.hide();
                 gallery.show();
-                text_position.hide();
+                text_position.show();
                 gradient_overlay.hide();
                 thumbnail.show();
                 linksToCards.show();
@@ -110,6 +110,19 @@
                 gradient_overlay.show();
                 thumbnail.show();
                 linksToCards.show();
+            }
+            if (value === 'STOCK CARD') {
+                video.hide();
+                text.hide();
+                text_header.hide();
+                image_gallery.hide();
+                video_text.hide();
+                invert_content_view.hide();
+                gallery.hide();
+                text_position.hide();
+                gradient_overlay.hide();
+                thumbnail.hide();
+                linksToCards.hide();
             }
         }
 
