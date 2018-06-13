@@ -28,7 +28,7 @@ class Video(models.Model):
         if self.id is None:
             return ''
         else:
-            return mark_safe('<img src="/media/uploads/kids_zone/thumbnails/%s_thumbnail.png" width="200" />' % (self.id))
+            return mark_safe('<a href="/media/uploads/kids_zone/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/kids_zone/thumbnails/%s_thumbnail.png" width="200" /></a>' % (self.id, self.id))
 
     @property
     def video_path(self):

@@ -31,28 +31,28 @@ class Sequence(models.Model):
         if self.intro_video == '':
             return ''
         else:
-            return mark_safe('<img src="/media/uploads/entice_mode/video_list/intro_video_thumbnails/%s_intro_thumbnail.png" width="200" />' % (self.id))
+            return mark_safe('<a href="/media/uploads/main_menu/content_card/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/entice_mode/video_list/intro_video_thumbnails/%s_intro_thumbnail.png" width="200" /></a>' % (self.id, self.id))
 
     @property
     def outro_video_thumbnail(self):
         if self.outro_video == '':
             return ''
         else:
-            return mark_safe('<img src="/media/uploads/entice_mode/video_list/outro_video_thumbnails/%s_outro_thumbnail.png" width="200" />' % (self.id))
+            return mark_safe('<a href="/media/uploads/entice_mode/video_list/outro_video_thumbnails/%s_outro_thumbnail.png" target="_blank"><img src="/media/uploads/entice_mode/video_list/outro_video_thumbnails/%s_outro_thumbnail.png" width="200" /></a>' % (self.id, self.id))
 
     @property
     def touch_indicator_video_thumbnail(self):
         if self.touch_indicator_video == '':
             return ''
         else:
-            return mark_safe('<img src="/media/uploads/entice_mode/video_list/touch_indicator_video_thumbnails/%s_touch_thumbnail.png" width="200" />' % (self.id))
+            return mark_safe('<a href="/media/uploads/entice_mode/video_list/touch_indicator_video_thumbnails/%s_touch_thumbnail.png" target="_blank"><img src="/media/uploads/entice_mode/video_list/touch_indicator_video_thumbnails/%s_touch_thumbnail.png" width="200" /></a>' % (self.id, self.id))
 
     @property
     def background_vignette_video_thumbnail(self):
         if self.background_vignette_video == '':
             return ''
         else:
-            return mark_safe('<img src="/media/uploads/entice_mode/video_list/background_vignette_video_thumbnails/%s_background_thumbnail.png" width="200" />' % (self.id))
+            return mark_safe('<a href="/media/uploads/entice_mode/video_list/background_vignette_video_thumbnails/%s_background_thumbnail.png" target="_blank"><img src="/media/uploads/entice_mode/video_list/background_vignette_video_thumbnails/%s_background_thumbnail.png" width="200" /></a>' % (self.id, self.id))
 
     @property
     def intro_video_path(self):

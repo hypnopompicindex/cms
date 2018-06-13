@@ -47,7 +47,7 @@ class Video(models.Model):
         if self.id is None:
             return ''
         else:
-            return mark_safe('<img src="/media/uploads/wow_mode/playlist/thumbnails/%s_thumbnail.png" width="200" />' % (self.id))
+            return mark_safe('<a href="/media/uploads/wow_mode/playlist/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/wow_mode/playlist/thumbnails/%s_thumbnail.png" width="200" />' % (self.id, self.id))
 
 
 @receiver(post_save, sender=Video, dispatch_uid="create_thumbnail")
