@@ -1,18 +1,19 @@
 (function($) {
     $(function() {
         var selectField = $('#id_content_type'),
-            image_gallery = $('a[href="#/tab/inline_0/"].changeform-tabs-item-link');
+            image_gallery = $('.field-image_gallery');
             text = $('.field-text');
             text_header = $('.field-text_header');
             video = $('.field-video');
+            video_path = $('.field-video_path');
             video_text_overlay = $('.field-video_text_overlay');
             video_text = $('.field-video_text');
             invert_content_view = $('.field-invert_content_view');
-            gallery = $(".changeform-tabs-item").not(".selected");
             text_position = $('.field-text_position');
             gradient_overlay = $('.field-gradient_overlay');
             thumbnail = $('.field-thumbnail');
-            linksToCards = $('a[href="#/tab/inline_1/"]');
+            linksToCards = $('a[href="#/tab/inline_0/"]');
+            gallery = $('a[href="#/tab/inline_1/"]');
 
         function toggleVerified(value) {
             if (value === '') {
@@ -28,6 +29,7 @@
                 gradient_overlay.hide();
                 thumbnail.hide();
                 linksToCards.show();
+                video_path.hide();
             }
             if (value === 'IMAGE_GALLERY') {
                 image_gallery.show();
@@ -42,6 +44,7 @@
                 gradient_overlay.hide();
                 thumbnail.hide();
                 linksToCards.show();
+                video_path.hide();
             }
             if (value === 'TEXT') {
                 text.show();
@@ -51,11 +54,12 @@
                 video_text_overlay.hide();
                 video_text.hide();
                 invert_content_view.hide();
-                gallery.show();
+                gallery.hide();
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
                 linksToCards.show();
+                video_path.hide();
             }
             if (value === 'TEXT_GALLERY') {
                 text.show();
@@ -70,6 +74,7 @@
                 gradient_overlay.hide();
                 thumbnail.hide();
                 linksToCards.show();
+                video_path.hide();
             }
             if (value === 'VIDEO') {
                 video.show();
@@ -79,11 +84,12 @@
                 video_text_overlay.hide();
                 video_text.hide();
                 invert_content_view.hide();
-                gallery.show();
+                gallery.hide();
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.show();
                 linksToCards.show();
+                video_path.show();
             }
             if (value === 'VIDEO_TEXT') {
                 text.show();
@@ -92,11 +98,12 @@
                 invert_content_view.hide();
                 image_gallery.hide();
                 video_text_overlay.hide();
-                gallery.show();
+                gallery.hide();
                 text_position.show();
                 gradient_overlay.hide();
                 thumbnail.show();
                 linksToCards.show();
+                video_path.show();
             }
             if (value === 'VIDEO_TEXT_OVERLAY') {
                 video.show();
@@ -105,11 +112,12 @@
                 image_gallery.hide();
                 video_text.hide();
                 invert_content_view.hide();
-                gallery.show();
+                gallery.hide();
                 text_position.show();
                 gradient_overlay.show();
                 thumbnail.show();
                 linksToCards.show();
+                video_path.show();
             }
             if (value === 'STOCK CARD') {
                 video.hide();
@@ -123,6 +131,7 @@
                 gradient_overlay.hide();
                 thumbnail.hide();
                 linksToCards.hide();
+                video_path.hide();
             }
         }
 

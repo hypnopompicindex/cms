@@ -11,6 +11,7 @@ from cms.settings import BASE_DIR
 from django.utils.html import escape
 from django.http import HttpResponse
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.core.exceptions import ValidationError
 
 
 CONTENT_TYPES = (
@@ -44,7 +45,7 @@ class ContentCard(models.Model):
     title = models.CharField(max_length=255)
 #    thumbnail = models.CharField(max_length=255, blank=True, null=True)
     active = models.BooleanField(default=False)
-    priority = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
+    priority = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], blank=True, null=True)
     creation_date = models.DateTimeField(auto_now_add=True)
     date_override = models.DateTimeField(blank=True, null=True)
     label = models.ManyToManyField(ContentLabel, blank=True, related_name='labels')
@@ -84,6 +85,54 @@ class ContentCard(models.Model):
     @property
     def video_path(self):
         return self.video.path
+
+    def clean(self):
+        super(ContentCard, self).clean()
+        msg = "This field is required."
+
+        if self.content_type == 'IMAGE_GALLERY':
+            if not self.galleries:
+                raise ValidationError("The Gallery field is required.")
+
+        if self.content_type == 'TEXT':
+            if not self.text_header:
+                raise ValidationError({'text_header': [msg,]})
+            if not self.text:
+                raise ValidationError({'text': [msg,]})
+
+        if self.content_type == 'TEXT_GALLERY':
+            if not self.text_header:
+                raise ValidationError({'text_header': [msg,]})
+            if not self.text:
+                raise ValidationError({'text': [msg,]})
+            if not self.text_position:
+                raise ValidationError({'text_position': [msg,]})
+
+        if self.content_type == 'VIDEO':
+            if not self.video:
+                raise ValidationError({'video': [msg,]})
+
+        if self.content_type == 'VIDEO_TEXT':
+            if not self.video:
+                raise ValidationError({'video': [msg,]})
+            if not self.text_header:
+                raise ValidationError({'text_header': [msg,]})
+            if not self.text:
+                raise ValidationError({'text': [msg,]})
+            if not self.text_position:
+                raise ValidationError({'text_position': [msg,]})
+
+        if self.content_type == 'VIDEO_TEXT_OVERLAY':
+            if not self.video:
+                raise ValidationError({'video': [msg,]})
+            if not self.text_header:
+                raise ValidationError({'text_header': [msg,]})
+            if not self.text:
+                raise ValidationError({'text': [msg,]})
+            if not self.text_position:
+                raise ValidationError({'text_position': [msg,]})
+            if not self.gradient_overlay:
+                raise ValidationError({'gradient_overlay': [msg,]})
 
 
 class ContentGallery(models.Model):
@@ -144,7 +193,7 @@ class ContentGroupCard(models.Model):
     title = models.CharField(max_length=255)
     content_card = models.ForeignKey(ContentCard, blank=True, null=True, on_delete=models.DO_NOTHING)
     content_group = models.ForeignKey(ContentGroup, blank=True, on_delete=models.DO_NOTHING)
-    priority = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)])
+    priority = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], blank=True, null=True)
     label = models.ManyToManyField(ContentLabel, blank=True, related_name='group_card_labels')
     creation_date = models.DateTimeField(auto_now_add=True)
 
