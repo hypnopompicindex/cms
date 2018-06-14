@@ -60,6 +60,7 @@ class ContentCard(models.Model):
                             extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'],
                             blank=True, null=True)
 #    secret = models.BooleanField(default=False)
+    button_image = FileBrowseField("Button Image", max_length=200, directory="main_menu/content_card/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True)
 
     class Meta:
         ordering = ('-date_override', 'creation_date')
@@ -172,6 +173,7 @@ class ContentGroup(MPTTModel):
     )
     active = models.BooleanField(default=False)
     secret = models.BooleanField(default=False)
+    button_image = FileBrowseField("Button Image", max_length=200, directory="main_menu/content_group/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True)
 
     class Meta:
         verbose_name = 'Content Groups'

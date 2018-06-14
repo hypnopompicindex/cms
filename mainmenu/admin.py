@@ -33,7 +33,7 @@ class ContentCardAdmin(admin.ModelAdmin):
     inlines = [ContentCardGroupInline, ContentGalleryInline]
     fieldsets = (
         ('General', {
-            'fields': ('title', 'parent', 'date_override', 'active', 'content_type', 'text_position', 'gradient_overlay', 'invert_content_view', 'text_header', 'text', 'video', 'thumbnail', 'video_path', 'image_gallery'),
+            'fields': ('title', 'button_image', 'parent', 'date_override', 'active', 'content_type', 'text_position', 'gradient_overlay', 'invert_content_view', 'text_header', 'text', 'video', 'thumbnail', 'video_path', 'image_gallery'),
         }),
     )
 
@@ -74,7 +74,7 @@ class ContentGroupAdmin(DjangoMpttAdmin):
     ordering = ('title',)
     fieldsets = (
         ('General', {
-            'fields': ('title', 'parent', 'subgroups', 'secret', 'active'),
+            'fields': ('title','button_image', 'parent', 'subgroups', 'secret', 'active'),
         }),
     )
     inlines = [
