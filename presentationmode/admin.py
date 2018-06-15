@@ -5,7 +5,7 @@ from adminsortable2.admin import SortableAdminMixin
 
 @admin.register(Presentation)
 class PresentationAdmin(SortableAdminMixin, admin.ModelAdmin):
-    list_display = ['title', 'image_overlay', 'start_date', 'end_date', 'active']
+    list_display = ['title', 'image_thumbnail', 'start_date', 'end_date', 'active']
     list_editable = ('active',)
-    readonly_fields = ('image_overlay_path',)
-    fields = ('title', 'image_overlay', 'image_overlay_path', 'start_date', 'end_date', 'active')
+    readonly_fields = ('image_thumbnail',)
+    fields = ('title', 'image_overlay', 'start_date', 'end_date', 'active')
