@@ -18,11 +18,7 @@ class ContentStyling(models.Model):
         verbose_name_plural = "Content Styling"
 
     def __str__(self):
-        return 'Content Styling'
-
-    @property
-    def image_path(self):
-        return self.image.path
+        return 'Record'
 
 
 class VideoWall(models.Model):
@@ -31,3 +27,6 @@ class VideoWall(models.Model):
     class Meta:
         verbose_name = 'Video Wall'
         verbose_name_plural = "Video Wall"
+
+    def __str__(self):
+        return 'Record'

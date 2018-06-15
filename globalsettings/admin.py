@@ -7,8 +7,7 @@ from adminsortable2.admin import SortableAdminMixin
 class ContentStylingAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ['order', 'title_colour',  'text_colour', 'background_colour']
     list_editable = ('title_colour',  'text_colour', 'background_colour')
-    readonly_fields = ('image_path',)
-    fields = ('title_colour', 'text_colour', 'background_colour', 'image', 'image_path')
+    fields = ('title_colour', 'text_colour', 'background_colour', 'image')
 
     def has_add_permission(self, request):
         return False
@@ -18,5 +17,5 @@ class ContentStylingAdmin(SortableAdminMixin, admin.ModelAdmin):
 class VideoWallAdmin(admin.ModelAdmin):
     list_display = ['entice_mode_proximity_distance',]
 
-#    def has_add_permission(self, request):
-#        return False
+    def has_add_permission(self, request):
+        return False
