@@ -5,12 +5,13 @@ from adminsortable2.admin import SortableAdminMixin, SortableInlineAdminMixin
 
 class VideoInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Video
-    readonly_fields = ('thumbnail', 'title', 'file_path')
-    fields = ('order', 'title', 'thumbnail', 'file', 'file_path')
+    readonly_fields = ('thumbnail', 'title')
+    fields = ('order', 'title', 'file')
 
 
 @admin.register(Videolist)
 class VideolistAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ['title', 'start_date', 'end_date',  'active']
     list_editable = ('active',)
+    fields = ('title', 'start_date', 'end_date', 'active')
     inlines = [VideoInline]
