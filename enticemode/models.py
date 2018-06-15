@@ -54,22 +54,6 @@ class Sequence(models.Model):
         else:
             return mark_safe('<a href="/media/uploads/entice_mode/video_list/background_vignette_video_thumbnails/%s_background_thumbnail.png" target="_blank"><img src="/media/uploads/entice_mode/video_list/background_vignette_video_thumbnails/%s_background_thumbnail.png" width="200" /></a>' % (self.id, self.id))
 
-    @property
-    def intro_video_path(self):
-        return self.intro_video.path
-
-    @property
-    def outro_video_path(self):
-        return self.outro_video.path
-
-    @property
-    def touch_indicator_video_path(self):
-        return self.touch_indicator_video.path
-
-    @property
-    def background_vignette_video_path(self):
-        return self.background_vignette_video.path
-
 
 @receiver(post_save, sender=Sequence)
 def generate_intro_video_thumbnails(sender, instance, created, **kwargs):
