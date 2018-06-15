@@ -6,6 +6,7 @@ from moviepy.editor import VideoFileClip
 import os
 from django.utils.safestring import mark_safe
 from cms.settings import BASE_DIR
+from filebrowser.settings import ADMIN_THUMBNAIL
 
 
 class Video(models.Model):
@@ -23,20 +24,19 @@ class Video(models.Model):
     def __str__(self):
         return self.title
 
-    @property
     def thumbnail(self):
         if self.id is None:
             return ''
         else:
-            return mark_safe('<a href="/media/uploads/kids_zone/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/kids_zone/thumbnails/%s_thumbnail.png" width="200" /></a>' % (self.id, self.id))
+            return mark_safe('<a href="/media/uploads/kids_zone/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/kids_zone/thumbnails/%s_thumbnail.png" width="60" /></a>' % (self.id, self.id))
+    thumbnail.short_description = "Video"
 
-    @property
-    def video_path(self):
-        return self.video.path
-
-    @property
-    def image_path(self):
-        return self.image.path
+    def image_thumbnail(self):
+        if self.image and self.image.filetype == "Image":
+            return mark_safe('<a href="%s" target="_blank"><img src="%s" /></a>' % (self.image.url, self.image.version_generate(ADMIN_THUMBNAIL).url))
+        else:
+            return ""
+    image_thumbnail.short_description = "Image"
 
 
 class Theme(models.Model):
@@ -44,7 +44,7 @@ class Theme(models.Model):
     background_image = FileBrowseField("Background Image", max_length=200, directory="kids_zone/themes/background_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'])
     bubble_image = FileBrowseField("Bubble Image", max_length=200, directory="kids_zone/themes/bubble_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'])
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
-    active = models.BooleanField(default=False)
+#    active = models.BooleanField(default=False)
 
     class Meta:
         ordering = ['order']
@@ -53,13 +53,19 @@ class Theme(models.Model):
     def __str__(self):
         return self.theme
 
-    @property
-    def background_image_path(self):
-        return self.background_image.path
+    def background_image_thumbnail(self):
+        if self.background_image and self.background_image.filetype == "Image":
+            return mark_safe('<a href="%s" target="_blank"><img src="%s" /></a>' % (self.background_image.url, self.background_image.version_generate(ADMIN_THUMBNAIL).url))
+        else:
+            return ""
+    background_image_thumbnail.short_description = "Background Image"
 
-    @property
-    def bubble_image_path(self):
-        return self.background_image.path
+    def bubble_image_thumbnail(self):
+        if self.bubble_image and self.bubble_image.filetype == "Image":
+            return mark_safe('<a href="%s" target="_blank"><img src="%s" /></a>' % (self.bubble_image.url, self.bubble_image.version_generate(ADMIN_THUMBNAIL).url))
+        else:
+            return ""
+    bubble_image_thumbnail.short_description = "Bubble Image"
 
 
 @receiver(post_save, sender=Video)
