@@ -184,11 +184,11 @@ class ContentGroup(MPTTModel):
 
     @property
     def subgroups(self):
-#        x = ([mark_safe('<a href="/mainmenu/contentgroup/%s/change/">%s</a>' % (p.id, p)) for p in self.children.all()])
+        x = '<br> '.join([mark_safe('<a href="/mainmenu/contentgroup/%s/change/">%s</a>' % (p.id, p)) for p in self.children.all()])
 #        return x
-        x = ', '.join(([str(p) for p in self.children.all()]))
+#        x = '<br> '.join(([str(p) for p in self.children.all()]))
 #        y = ([str(p.id) for p in self.children.all()])
-        return x
+        return mark_safe(x)
 
 
 class ContentGroupCard(models.Model):
