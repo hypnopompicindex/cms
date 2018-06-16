@@ -130,7 +130,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
-                linksToCards.hide();
+                linksToCards.show();
                 video_path.hide();
             }
         }

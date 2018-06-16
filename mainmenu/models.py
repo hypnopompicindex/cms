@@ -81,7 +81,8 @@ class ContentCard(models.Model):
             return mark_safe('<a href="/media/uploads/main_menu/content_card/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/main_menu/content_card/thumbnails/%s_thumbnail.png" width="200" /></a>' % (self.id, self.id))
 
     def parent(self):
-        return ", ".join([str(p) for p in self.contentgroup_set.all()])
+        x = '<br> '.join([mark_safe('<a href="/mainmenu/contentgroup/%s/change/">%s</a>' % (p.id, p)) for p in self.contentgroup_set.all()])
+        return mark_safe(x)
 
     @property
     def video_path(self):
@@ -155,10 +156,6 @@ class ContentGallery(models.Model):
 
     def __str__(self):
         return self.title
-
-    @property
-    def image_path(self):
-        return self.gallery_image.path
 
 
 class ContentGroup(MPTTModel):

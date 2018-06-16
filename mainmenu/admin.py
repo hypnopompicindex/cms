@@ -9,10 +9,9 @@ class ContentLabelAdmin(admin.ModelAdmin):
     model = ContentLabel
 
 
-class ContentGalleryInline(SortableInlineAdminMixin, admin.StackedInline):
+class ContentGalleryInline(SortableInlineAdminMixin, admin.TabularInline):
     model = ContentGallery
-    readonly_fields = ('image_path',)
-    fields = ('gallery_image', 'image_path')
+    fields = ('priority', 'gallery_image')
 
 
 class ContentCardGroupInline(admin.TabularInline):

@@ -4,36 +4,36 @@
     <session id="-2048024314">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="css" value="8" />
-          <entry key="html" value="123" />
-          <entry key="js" value="7" />
-          <entry key="py" value="163" />
+          <entry key="css" value="9" />
+          <entry key="html" value="132" />
+          <entry key="js" value="9" />
+          <entry key="py" value="164" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CSS" value="8" />
-          <entry key="HTML" value="123" />
-          <entry key="JavaScript" value="7" />
-          <entry key="Python" value="163" />
+          <entry key="CSS" value="9" />
+          <entry key="HTML" value="132" />
+          <entry key="JavaScript" value="9" />
+          <entry key="Python" value="164" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="126" />
-          <entry key="html" value="925" />
-          <entry key="js" value="212" />
-          <entry key="py" value="2706" />
-          <entry key="txt" value="742" />
+          <entry key="css" value="127" />
+          <entry key="html" value="935" />
+          <entry key="js" value="218" />
+          <entry key="py" value="2784" />
+          <entry key="txt" value="767" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="126" />
-          <entry key="HTML" value="925" />
-          <entry key="JavaScript" value="212" />
-          <entry key="PLAIN_TEXT" value="742" />
-          <entry key="Python" value="2706" />
+          <entry key="CSS" value="127" />
+          <entry key="HTML" value="935" />
+          <entry key="JavaScript" value="218" />
+          <entry key="PLAIN_TEXT" value="767" />
+          <entry key="Python" value="2784" />
         </counts>
       </usages-collector>
     </session>
