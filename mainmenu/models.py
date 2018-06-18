@@ -49,7 +49,7 @@ class ContentCard(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
     date_override = models.DateTimeField(blank=True, null=True)
     label = models.ManyToManyField(ContentLabel, blank=True, related_name='labels')
-    content_type = models.CharField(max_length=255, choices=CONTENT_TYPES, blank=True, null=True)
+    content_type = models.CharField(max_length=255, choices=CONTENT_TYPES)
     text_position = models.CharField(max_length=255, choices=POSITION, blank=True, null=True)
     gradient_overlay = FileBrowseField("Gradient Overlay", max_length=200, directory="main_menu/content_card/gradient_overlay/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True)
     invert_content_view = models.BooleanField(default=False)

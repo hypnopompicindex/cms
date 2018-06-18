@@ -12,8 +12,8 @@
             text_position = $('.field-text_position');
             gradient_overlay = $('.field-gradient_overlay');
             thumbnail = $('.field-thumbnail');
-            linksToCards = $('a[href="#/tab/inline_0/"]');
-            gallery = $('a[href="#/tab/inline_1/"]');
+            linksToCards = $('a[href="#/tab/inline_1/"]');
+            gallery = $('a[href="#/tab/inline_0/"]');
 
         function toggleVerified(value) {
             if (value === '') {
@@ -28,7 +28,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
-                linksToCards.show();
+                linksToCards.hide();
                 video_path.hide();
             }
             if (value === 'IMAGE_GALLERY') {
@@ -43,7 +43,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
-                linksToCards.show();
+                linksToCards.hide();
                 video_path.hide();
             }
             if (value === 'TEXT') {
@@ -58,7 +58,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
-                linksToCards.show();
+                linksToCards.hide();
                 video_path.hide();
             }
             if (value === 'TEXT_GALLERY') {
@@ -73,7 +73,7 @@
                 text_position.show();
                 gradient_overlay.hide();
                 thumbnail.hide();
-                linksToCards.show();
+                linksToCards.hide();
                 video_path.hide();
             }
             if (value === 'VIDEO') {
@@ -88,8 +88,8 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.show();
-                linksToCards.show();
-                video_path.show();
+                linksToCards.hide();
+                video_path.hide();
             }
             if (value === 'VIDEO_TEXT') {
                 text.show();
@@ -102,8 +102,8 @@
                 text_position.show();
                 gradient_overlay.hide();
                 thumbnail.show();
-                linksToCards.show();
-                video_path.show();
+                linksToCards.hide();
+                video_path.hide();
             }
             if (value === 'VIDEO_TEXT_OVERLAY') {
                 video.show();
@@ -116,8 +116,8 @@
                 text_position.show();
                 gradient_overlay.show();
                 thumbnail.show();
-                linksToCards.show();
-                video_path.show();
+                linksToCards.hide();
+                video_path.hide();
             }
             if (value === 'STOCK CARD') {
                 video.hide();
@@ -130,7 +130,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
-                linksToCards.show();
+                linksToCards.hide();
                 video_path.hide();
             }
         }
