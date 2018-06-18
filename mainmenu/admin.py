@@ -29,7 +29,7 @@ class ContentCardAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ('title', 'content_type', 'date_override', 'parent', 'active')
     list_editable = ('active',)
     readonly_fields = ('image_gallery', 'thumbnail', 'parent', 'video_path')
-    inlines = [ContentGalleryInline,]
+    inlines = [ContentGalleryInline, ContentCardGroupInline]
     fieldsets = (
         ('General', {
             'fields': ('title', 'button_image', 'parent',  'active', 'content_type', 'text_position', 'gradient_overlay', 'invert_content_view', 'text_header', 'text', 'video', 'thumbnail', 'video_path', 'image_gallery'),

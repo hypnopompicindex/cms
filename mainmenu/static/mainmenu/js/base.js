@@ -28,7 +28,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
-                linksToCards.hide();
+                linksToCards.show();
                 video_path.hide();
             }
             if (value === 'IMAGE_GALLERY') {
@@ -43,7 +43,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
-                linksToCards.hide();
+                linksToCards.show();
                 video_path.hide();
             }
             if (value === 'TEXT') {
@@ -58,7 +58,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
-                linksToCards.hide();
+                linksToCards.show();
                 video_path.hide();
             }
             if (value === 'TEXT_GALLERY') {
@@ -73,7 +73,7 @@
                 text_position.show();
                 gradient_overlay.hide();
                 thumbnail.hide();
-                linksToCards.hide();
+                linksToCards.show();
                 video_path.hide();
             }
             if (value === 'VIDEO') {
@@ -88,7 +88,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.show();
-                linksToCards.hide();
+                linksToCards.show();
                 video_path.hide();
             }
             if (value === 'VIDEO_TEXT') {
@@ -102,7 +102,7 @@
                 text_position.show();
                 gradient_overlay.hide();
                 thumbnail.show();
-                linksToCards.hide();
+                linksToCards.show();
                 video_path.hide();
             }
             if (value === 'VIDEO_TEXT_OVERLAY') {
@@ -116,7 +116,7 @@
                 text_position.show();
                 gradient_overlay.show();
                 thumbnail.show();
-                linksToCards.hide();
+                linksToCards.show();
                 video_path.hide();
             }
             if (value === 'STOCK CARD') {
@@ -130,7 +130,7 @@
                 text_position.hide();
                 gradient_overlay.hide();
                 thumbnail.hide();
-                linksToCards.hide();
+                linksToCards.show();
                 video_path.hide();
             }
         }
