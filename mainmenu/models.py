@@ -190,7 +190,7 @@ class ContentGroup(MPTTModel):
 
 class ContentGroupCard(models.Model):
     title = models.CharField(max_length=255)
-    content_card = models.ForeignKey(ContentCard, blank=True, null=True, on_delete=models.CASCADE)
+    content_card = models.ForeignKey(ContentCard, on_delete=models.CASCADE)
     content_group = models.ForeignKey(ContentGroup, blank=True, on_delete=models.CASCADE)
     priority = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(100)], blank=True, null=True)
     label = models.ManyToManyField(ContentLabel, blank=True, related_name='group_card_labels')
