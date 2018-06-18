@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django_mptt_admin.admin import DjangoMpttAdmin
 from .models import ContentGroup, ContentCard, ContentLabel, ContentGallery, ContentGroupCard
-from adminsortable2.admin import SortableInlineAdminMixin
+from adminsortable2.admin import SortableAdminMixin, SortableInlineAdminMixin
 
 
 @admin.register(ContentLabel)
@@ -23,7 +23,7 @@ class ContentCardGroupInline(admin.TabularInline):
 
 
 @admin.register(ContentCard)
-class ContentCardAdmin(admin.ModelAdmin):
+class ContentCardAdmin(SortableAdminMixin, admin.ModelAdmin):
     model = ContentCard
 #    filter_horizontal = ('label',)
     list_display = ('title', 'content_type', 'date_override', 'parent', 'active')
@@ -32,7 +32,7 @@ class ContentCardAdmin(admin.ModelAdmin):
     inlines = [ContentGalleryInline,]
     fieldsets = (
         ('General', {
-            'fields': ('title', 'button_image', 'parent', 'date_override', 'active', 'content_type', 'text_position', 'gradient_overlay', 'invert_content_view', 'text_header', 'text', 'video', 'thumbnail', 'video_path', 'image_gallery'),
+            'fields': ('title', 'button_image', 'parent',  'active', 'content_type', 'text_position', 'gradient_overlay', 'invert_content_view', 'text_header', 'text', 'video', 'thumbnail', 'video_path', 'image_gallery'),
         }),
     )
 
