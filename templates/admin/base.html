@@ -12,8 +12,8 @@
 <link rel="stylesheet" type="text/css" href="{% static "jet/css/vendor.css" as url %}{{ url|jet_append_version }}" />
 <link rel="stylesheet" type="text/css" href="{% static "jet/css/icons/style.css" as url %}{{ url|jet_append_version }}" />
 <link rel="stylesheet" type="text/css" href="{% static "jet/css/themes/"|add:THEME|add:"/base.css" as url %}{{ url|jet_append_version }}" class="base-stylesheet" />
-<link rel="stylesheet" type="text/css" href="{% static "jet/css/themes/"|add:THEME|add:"/select2.theme.css" as url %}{{ url|jet_append_version }}" class="select2-stylesheet" />
-<link rel="stylesheet" type="text/css" href="{% static "jet/css/themes/"|add:THEME|add:"/jquery-ui.theme.css" as url %}{{ url|jet_append_version }}" class="jquery-ui-stylesheet" />
+<link rel="stylesheet" type="text/css" href="{% static "jet/css/themes/"|add:THEME|add:"/select2.themes.css" as url %}{{ url|jet_append_version }}" class="select2-stylesheet" />
+<link rel="stylesheet" type="text/css" href="{% static "jet/css/themes/"|add:THEME|add:"/jquery-ui.themes.css" as url %}{{ url|jet_append_version }}" class="jquery-ui-stylesheet" />
 
 {% block extrastyle %}
     <link rel="stylesheet" type="text/css" href="{% static "admin/css/overrides.css" %}" />
@@ -122,6 +122,9 @@
 
     <!-- Content -->
     <span style="font-size:30px;padding-left:1.42857rem;">{{ title }}</span>
+    {% if title == 'Select Theme to change' %}
+        <br><span style="font-size:15px;padding-left:1.42857rem;">The top theme will be used in the Touch Wall app</span>
+    {% endif %}
     <div id="content" class="{% block coltype %}colM{% endblock %}">
         {% block pretitle %}{% endblock %}
         {% block content_title %}{% if title %}<h1>{{ title }}</h1>{% endif %}{% endblock %}
@@ -391,7 +394,7 @@
     {% jet_get_themes as THEMES %}
     {% if THEMES %}
         <li class="user-tools-contrast-block theme-chooser">
-            <div class="user-tools-contrast-block-title">{% trans "current theme" %}</div>
+            <div class="user-tools-contrast-block-title">{% trans "current themes" %}</div>
             <div class="user-tools-theme-link-container">
                 {% spaceless %}
                     {% for conf_theme in THEMES %}
@@ -400,8 +403,8 @@
                                class="user-tools-theme-link choose-theme{% if conf_theme.theme == THEME %} selected{% endif %}"
                                data-theme="{{ conf_theme.theme }}"
                                data-base-stylesheet="{% static "jet/css/themes/"|add:conf_theme.theme|add:"/base.css" %}?v={{ JET_VERSION }}"
-                               data-select2-stylesheet="{% static "jet/css/themes/"|add:conf_theme.theme|add:"/select2.theme.css" %}?v={{ JET_VERSION }}"
-                               data-jquery-ui-stylesheet="{% static "jet/css/themes/"|add:conf_theme.theme|add:"/jquery-ui.theme.css" %}?v={{ JET_VERSION }}"
+                               data-select2-stylesheet="{% static "jet/css/themes/"|add:conf_theme.theme|add:"/select2.themes.css" %}?v={{ JET_VERSION }}"
+                               data-jquery-ui-stylesheet="{% static "jet/css/themes/"|add:conf_theme.theme|add:"/jquery-ui.themes.css" %}?v={{ JET_VERSION }}"
                                {% if conf_theme.title %} title="{{ conf_theme.title }}"{% endif %}
                                style="background-color: {{ conf_theme.color|default:"white" }};"
                                     ></a>
