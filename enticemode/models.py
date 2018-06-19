@@ -31,7 +31,7 @@ class Sequence(models.Model):
         if self.intro_video == '':
             return ''
         else:
-            return mark_safe('<a href="/media/uploads/main_menu/content_card/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/entice_mode/video_list/intro_video_thumbnails/%s_intro_thumbnail.png" width="200" /></a>' % (self.intro_video.filename_root, self.intro_video.filename_root))
+            return mark_safe('<a href="/media/uploads/entice_mode/video_list/intro_video_thumbnails/%s_intro_thumbnail.png" target="_blank"><img src="/media/uploads/entice_mode/video_list/intro_video_thumbnails/%s_intro_thumbnail.png" width="200" /></a>' % (self.intro_video.filename_root, self.intro_video.filename_root))
 
     @property
     def outro_video_thumbnail(self):
