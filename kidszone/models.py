@@ -28,7 +28,7 @@ class Video(models.Model):
         if self.id is None:
             return ''
         else:
-            return mark_safe('<a href="/media/uploads/kids_zone/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/kids_zone/thumbnails/%s_thumbnail.png" width="60" /></a>' % (self.id, self.id))
+            return mark_safe('<a href="/media/uploads/kids_zone/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/kids_zone/thumbnails/%s_thumbnail.png" width="200" /></a>' % (self.video.filename_root, self.video.filename_root))
     thumbnail.short_description = "Video"
 
     def image_thumbnail(self):
@@ -73,6 +73,6 @@ def generate_thumbnails(sender, instance, created, **kwargs):
     if created:
         path = BASE_DIR + '/media/' + str(instance.video)
         clip = VideoFileClip(path)
-        thumbnail = str(instance.id) + '_thumbnail.png'
+        thumbnail = str(instance.video.filename_root) + '_thumbnail.png'
         clip.save_frame(thumbnail, t=(clip.duration/2))
         os.rename(BASE_DIR + '/' + str(thumbnail), BASE_DIR + "/media/uploads/kids_zone/thumbnails/" + str(thumbnail))
