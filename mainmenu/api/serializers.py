@@ -33,10 +33,10 @@ class ContentGroupCardSerializer(serializers.ModelSerializer):
 
 
 class ContentGroupSerializer(serializers.ModelSerializer):
- #   card = ContentCardSerializer(read_only=True, many=True)
+    card = ContentCardSerializer(read_only=True, many=True)
     content_group = ContentGroupCardSerializer(source='contentgroupcard_set', many=True)
 
     class Meta:
         model = ContentGroup
-        fields = ('id', 'title', 'button_image', 'active', 'secret', 'lft', 'rght', 'tree_id', 'level', 'parent',  'content_group')
+        fields = ('id', 'title', 'button_image', 'active', 'secret', 'lft', 'rght', 'tree_id', 'level', 'parent',  'content_group', 'card')
 
