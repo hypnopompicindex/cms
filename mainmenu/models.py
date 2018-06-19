@@ -78,7 +78,7 @@ class ContentCard(models.Model):
         if self.video is None:
             return ''
         else:
-            return mark_safe('<a href="/media/uploads/main_menu/content_card/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/main_menu/content_card/thumbnails/%s_thumbnail.png" width="200" /></a>' % (self.id, self.id))
+            return mark_safe('<a href="/media/uploads/main_menu/content_card/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/main_menu/content_card/thumbnails/%s_thumbnail.png" width="200" /></a>' % (self.video.filename_root, self.video.filename_root))
 
     def parent(self):
         x = '<br> '.join([mark_safe('<a href="/mainmenu/contentgroup/%s/change/">%s</a>' % (p.id, p)) for p in self.contentgroup_set.all()])
@@ -210,7 +210,7 @@ def generate_thumbnails(sender, instance, created, **kwargs):
     try:
         path = BASE_DIR + '/media/' + str(instance.video)
         clip = VideoFileClip(path)
-        thumbnail = str(instance.id) + '_thumbnail.png'
+        thumbnail = str(instance.video.filename_root) + '_thumbnail.png'
         clip.save_frame(thumbnail, t=(clip.duration/2))
         os.rename(BASE_DIR + '/' + str(thumbnail), BASE_DIR + "/media/uploads/main_menu/content_card/thumbnails/" + str(thumbnail))
     except OSError:
