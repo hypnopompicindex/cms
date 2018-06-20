@@ -43,7 +43,7 @@ class Video(models.Model):
         if self.id is None:
             return ''
         else:
-            return mark_safe('<a href="/media/uploads/wow_mode/playlist/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/wow_mode/playlist/thumbnails/%s_thumbnail.png" width="200" />' % (self.file.filename_root, self.file.filename_root))
+            return mark_safe('<a href="/media/uploads/wow_mode/playlist/video/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/wow_mode/playlist/video/thumbnails/%s_thumbnail.png" width="200" />' % (self.file.filename_root, self.file.filename_root))
 
 
 @receiver(post_save, sender=Video, dispatch_uid="create_thumbnail")
@@ -53,4 +53,4 @@ def generate_thumbnails(sender, instance, created, **kwargs):
         clip = VideoFileClip(path)
         thumbnail = str(instance.file.filename_root) + '_thumbnail.png'
         clip.save_frame(thumbnail, t=(clip.duration/2))
-        os.rename(BASE_DIR + '/' + str(thumbnail), BASE_DIR + "/media/uploads/wow_mode/playlist/thumbnails/" + str(thumbnail))
+        os.rename(BASE_DIR + '/' + str(thumbnail), BASE_DIR + "/media/uploads/wow_mode/playlist/video/thumbnails/" + str(thumbnail))
