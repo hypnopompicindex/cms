@@ -51,7 +51,7 @@ class ContentCard(models.Model):
     label = models.ManyToManyField(ContentLabel, blank=True, related_name='labels')
     content_type = models.CharField(max_length=255, choices=CONTENT_TYPES)
     text_position = models.CharField(max_length=255, choices=POSITION, blank=True, null=True)
-    gradient_overlay = FileBrowseField("Gradient Overlay", max_length=200, directory="main_menu/content_card/gradient_overlay/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True)
+    gradient_overlay = FileBrowseField("Gradient overlay", max_length=200, directory="main_menu/content_card/overlay_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True)
     invert_content_view = models.BooleanField(default=False)
     text_header = models.CharField(max_length=255, blank=True, null=True)
     text = RichTextField(blank=True, null=True)
@@ -60,7 +60,7 @@ class ContentCard(models.Model):
                             extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'],
                             blank=True, null=True)
 #    secret = models.BooleanField(default=False)
-    button_image = FileBrowseField(max_length=200, directory="main_menu/content_card/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name=' image')
+    button_image = FileBrowseField(max_length=200, directory="main_menu/content_card/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image')
 
     class Meta:
         ordering = ('-date_override', 'creation_date')
@@ -170,7 +170,7 @@ class ContentGroup(MPTTModel):
     )
     active = models.BooleanField(default=False)
     secret = models.BooleanField(default=False)
-    button_image = FileBrowseField(max_length=200, directory="main_menu/content_group/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name=' image')
+    button_image = FileBrowseField(max_length=200, directory="main_menu/content_group/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image')
 
     class Meta:
         verbose_name = 'Content Groups'
