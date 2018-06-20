@@ -10,7 +10,7 @@
             video_text = $('.field-video_text');
             invert_content_view = $('.field-invert_content_view');
             text_position = $('.field-text_position');
-            gradient_overlay = $('.field-gradient_overlay');
+            gradient_overlay = $('.field-overlay_image');
             thumbnail = $('.field-thumbnail');
             linksToCards = $('a[href="#/tab/inline_1/"]');
             gallery = $('a[href="#/tab/inline_0/"]');

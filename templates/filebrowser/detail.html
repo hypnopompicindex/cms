@@ -43,6 +43,7 @@
     <form action="{% query_string "" "filter_date,filter_type,q,p" %}" method="post">{% csrf_token %}
         <div>
             {% if form.errors %}<p class="errornote">{% trans 'Please correct the following errors.' %}</p>{% endif %}
+<!--
             <fieldset class="module aligned">
                 <div class="form-row field-{{ form.name.name }}{% if form.name.errors %} errors{% endif %}">
                     {% if form.name.errors %}{{ form.name.errors }}{% endif %}
@@ -53,6 +54,7 @@
                     </div>
                 </div>
             </fieldset>
+-->
             {% if fileobject.filetype == "Folder" %}
             <fieldset class="module aligned">
                 <h2>{% trans "Folder Information" %}</h2>
