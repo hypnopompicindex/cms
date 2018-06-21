@@ -21,7 +21,7 @@ class Presentation(models.Model):
 
     def image_thumbnail(self):
         if self.image_overlay and self.image_overlay.filetype == "Image":
-            return mark_safe('<a href="%s" target="_blank"><img src="%s" /></a>' % (self.image_overlay.url, self.image_overlay.version_generate(ADMIN_THUMBNAIL).url))
+            return mark_safe('<a href="%s" target="_blank"><img src="%s" height="100px" /></a>' % (self.image_overlay.url, self.image_overlay.url))
         else:
             return ""
     image_thumbnail.short_description = "Image Overlay"

@@ -28,12 +28,12 @@ class Video(models.Model):
         if self.id is None:
             return ''
         else:
-            return mark_safe('<a href="/media/uploads/kids_zone/videos/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/kids_zone/videos/thumbnails/%s_thumbnail.png" width="200" /></a>' % (self.video.filename_root, self.video.filename_root))
+            return mark_safe('<a href="/media/uploads/kids_zone/videos/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/kids_zone/videos/thumbnails/%s_thumbnail.png" height="100px" /></a>' % (self.video.filename_root, self.video.filename_root))
     thumbnail.short_description = "Video"
 
     def image_thumbnail(self):
         if self.image and self.image.filetype == "Image":
-            return mark_safe('<a href="%s" target="_blank"><img src="%s" /></a>' % (self.image.url, self.image.version_generate(ADMIN_THUMBNAIL).url))
+            return mark_safe('<a href="%s" target="_blank"><img src="%s" height="100px"/></a>' % (self.image.url, self.image.url))
         else:
             return ""
     image_thumbnail.short_description = "Image"
@@ -55,14 +55,14 @@ class Theme(models.Model):
 
     def background_image_thumbnail(self):
         if self.background_image and self.background_image.filetype == "Image":
-            return mark_safe('<a href="%s" target="_blank"><img src="%s" /></a>' % (self.background_image.url, self.background_image.version_generate(ADMIN_THUMBNAIL).url))
+            return mark_safe('<a href="%s" target="_blank"><img src="%s" height="100px" width="100px" /></a>' % (self.background_image.url, self.background_image.url))
         else:
             return ""
     background_image_thumbnail.short_description = "Background Image"
 
     def bubble_image_thumbnail(self):
         if self.bubble_image and self.bubble_image.filetype == "Image":
-            return mark_safe('<a href="%s" target="_blank"><img src="%s" /></a>' % (self.bubble_image.url, self.bubble_image.version_generate(ADMIN_THUMBNAIL).url))
+            return mark_safe('<a href="%s" target="_blank"><img src="%s" height="100px" /></a>' % (self.bubble_image.url, self.bubble_image.url))
         else:
             return ""
     bubble_image_thumbnail.short_description = "Bubble Image"

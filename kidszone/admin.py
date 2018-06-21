@@ -8,7 +8,7 @@ class VideoAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_display = ['title', 'image_thumbnail', 'thumbnail', 'active']
     list_editable = ['active',]
     readonly_fields = ('thumbnail', 'image_thumbnail')
-    fields = ('title', 'video', 'thumbnail', 'image', 'active', 'image_thumbnail')
+    fields = ('title', 'video', 'thumbnail', 'image', 'active')
 
 
 @admin.register(Theme)
