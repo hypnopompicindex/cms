@@ -57,7 +57,14 @@
     <script src="{% static url as url %}{{ url|jet_append_version }}"></script>
 {% endfor %}
 
-{% block extrahead %}{% endblock %}
+{% block extrahead %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(function() {
+        box = $('.field-_reorder').height();
+        $(".drag").height(box);});
+</script>
+{% endblock %}
 {% block blockbots %}<meta name="robots" content="NONE,NOARCHIVE" />{% endblock %}
 </head>
 {% load i18n %}
@@ -415,11 +422,5 @@
     {% endif %}
 </div>
 <!-- END Container -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script>
-    $(function() {
-        box = $('.field-_reorder').height();
-        $(".drag").height(box);});
-</script>
 </body>
 </html>{% endblock %}

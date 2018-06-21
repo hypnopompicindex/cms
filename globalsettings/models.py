@@ -23,6 +23,7 @@ class ContentStyling(models.Model):
 
 class VideoWall(models.Model):
     entice_mode_proximity_distance = models.IntegerField(help_text="millimetres", validators=[MinValueValidator(0), MaxValueValidator(10000)])
+    time_out =models.IntegerField(help_text="seconds", validators=[MinValueValidator(0), MaxValueValidator(100)])
 
     class Meta:
         verbose_name = 'Video Wall'

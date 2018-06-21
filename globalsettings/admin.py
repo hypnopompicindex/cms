@@ -15,7 +15,7 @@ class ContentStylingAdmin(SortableAdminMixin, admin.ModelAdmin):
 
 @admin.register(VideoWall)
 class VideoWallAdmin(admin.ModelAdmin):
-    list_display = ['entice_mode_proximity_distance',]
+    list_display = ['entice_mode_proximity_distance', 'time_out']
 
     def has_add_permission(self, request):
         return False
