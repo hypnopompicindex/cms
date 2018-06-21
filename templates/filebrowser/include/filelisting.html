@@ -97,11 +97,11 @@
         <!-- THUMBNAIL -->
         <td class="fb_thumbnail">
             {% if fileobject.filetype == "Image" %}
-                <a href="{{ fileobject.url }}" class="fb_viewlink"><img src="{{ thumbnail_version.url }}" title="{% trans 'View Image' %}" /></a>
+                <a href="{{ fileobject.url }}" class="fb_viewlink" target="_blank"><img src="{{ thumbnail_version.url }}" title="{% trans 'View Image' %}" /></a>
             {% endif %}
 
             {% if fileobject.filetype == "Video" %}
-                <a href="/media/{{ fileobject.head }}/thumbnails/{{ fileobject.filename_root }}_thumbnail.png"><img src="/media/{{ fileobject.head }}/thumbnails/{{ fileobject.filename_root }}_thumbnail.png" width="60" title="{% trans 'View Image' %}" /></a>
+                <a href="/media/{{ fileobject.head }}/thumbnails/{{ fileobject.filename_root }}_thumbnail.png" class="fb_viewlink" target="_blank"><img src="/media/{{ fileobject.head }}/thumbnails/{{ fileobject.filename_root }}_thumbnail.png" width="60" title="{% trans 'View Image' %}" /></a>
             {% endif %}
 
         </td>
