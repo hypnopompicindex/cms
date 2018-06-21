@@ -63,7 +63,7 @@ class ContentCard(models.Model):
     button_image = FileBrowseField(max_length=200, directory="main_menu/content_card/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image')
 
     class Meta:
-        ordering = ('-date_override', 'creation_date')
+        ordering = ('priority', 'creation_date')
         verbose_name = 'Content Card'
         verbose_name_plural = "Content Cards"
 

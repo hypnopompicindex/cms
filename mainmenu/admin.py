@@ -26,13 +26,13 @@ class ContentCardGroupInline(admin.TabularInline):
 class ContentCardAdmin(SortableAdminMixin, admin.ModelAdmin):
     model = ContentCard
 #    filter_horizontal = ('label',)
-    list_display = ('title', 'content_type', 'date_override', 'parent', 'active')
+    list_display = ('title', 'content_type', 'parent', 'date_override', 'active')
     list_editable = ('active',)
     readonly_fields = ('image_gallery', 'thumbnail', 'parent', 'video_path')
     inlines = [ContentGalleryInline, ContentCardGroupInline]
     fieldsets = (
         ('General', {
-            'fields': ('title', 'button_image', 'parent',  'active', 'content_type', 'text_position', 'gradient_overlay', 'invert_content_view', 'text_header', 'text', 'video', 'thumbnail', 'video_path', 'image_gallery'),
+            'fields': ('title', 'button_image', 'parent',  'active', 'date_override', 'content_type', 'text_position', 'gradient_overlay', 'invert_content_view', 'text', 'video', 'thumbnail', 'video_path', 'image_gallery'),
         }),
     )
 
