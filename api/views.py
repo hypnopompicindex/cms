@@ -9,7 +9,7 @@ from kidszone.api.serializers import *
 from kidszone.models import Video, Theme
 from presentationmode.api.serializers import PresentationSerializer
 from presentationmode.models import Presentation
-from globalsettings.api.serializers import ContentStylingSerializer, VideoWallSerializer
+from globalsettings.api.serializers import *
 from globalsettings.models import ContentStyling, VideoWall
 
 
@@ -31,23 +31,16 @@ class AllAPIView(ObjectMultipleModelAPIView):
 
 
 class AllMediaView(FlatMultipleModelAPIView):
-    add_model_type = True
+    add_model_type = False
 
     querylist = (
-        {'queryset': Video.objects.all().distinct(), 'serializer_class': VideoVideoTimestampSerializer,
-         'label': 'Kids Zone Video Video Media', },
-        {'queryset': Video.objects.all().distinct(), 'serializer_class': VideoImageTimestampSerializer,
-         'label': 'Kids Zone Video Image Media', },
-        {'queryset': Theme.objects.all().distinct(), 'serializer_class': ThemeBackgroundImageTimestampSerializer,
-         'label': 'Kids Zone Theme Background Image Media', },
-        {'queryset': Theme.objects.all().distinct(), 'serializer_class': ThemeBubbleImageTimestampSerializer,
-         'label': 'Kids Zone Theme Bubble Image Media', },
-        {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceIntroVideoSerializer,
-         'label': 'Kids Zone Theme Bubble Image Media', },
-        {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceOutroVideoSerializer,
-         'label': 'Kids Zone Theme Bubble Image Media', },
-        {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceTouchIndicatorVideoSerializer,
-         'label': 'Kids Zone Theme Bubble Image Media', },
-        {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceBackgroundVignetteVideoSerializer,
-         'label': 'Kids Zone Theme Bubble Image Media', },
+        {'queryset': Video.objects.all().distinct(), 'serializer_class': VideoVideoTimestampSerializer},
+        {'queryset': Video.objects.all().distinct(), 'serializer_class': VideoImageTimestampSerializer},
+        {'queryset': Theme.objects.all().distinct(), 'serializer_class': ThemeBackgroundImageTimestampSerializer},
+        {'queryset': Theme.objects.all().distinct(), 'serializer_class': ThemeBubbleImageTimestampSerializer},
+        {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceIntroVideoSerializer},
+        {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceOutroVideoSerializer},
+        {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceTouchIndicatorVideoSerializer},
+        {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceBackgroundVignetteVideoSerializer},
+        {'queryset': ContentStyling.objects.all().distinct(), 'serializer_class': ContentStylingImageSerializer},
     )
