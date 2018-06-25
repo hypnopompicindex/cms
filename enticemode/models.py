@@ -6,6 +6,7 @@ from moviepy.editor import VideoFileClip
 import os
 from django.utils.safestring import mark_safe
 from cms.settings import BASE_DIR
+from pathlib import Path
 
 
 class Sequence(models.Model):
@@ -28,31 +29,35 @@ class Sequence(models.Model):
 
     @property
     def intro_video_thumbnail(self):
-        if self.intro_video == '':
-            return ''
-        else:
+        file = Path("media/uploads/entice_mode/video_list/intro_video/thumbnails/%s_thumbnail.png" % self.intro_video.filename_root)
+        if file.is_file():
             return mark_safe('<a href="/media/uploads/entice_mode/video_list/intro_video/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/entice_mode/video_list/intro_video/thumbnails/%s_thumbnail.png" height="100px" /></a>' % (self.intro_video.filename_root, self.intro_video.filename_root))
+        else:
+            return mark_safe('<img src="/media/uploads/no_image_available.png" height="100px" />')
 
     @property
     def outro_video_thumbnail(self):
-        if self.outro_video == '':
-            return ''
-        else:
+        file = Path("media/uploads/entice_mode/video_list/outro_video/thumbnails/%s_thumbnail.png" % self.outro_video.filename_root)
+        if file.is_file():
             return mark_safe('<a href="/media/uploads/entice_mode/video_list/outro_video/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/entice_mode/video_list/outro_video/thumbnails/%s_thumbnail.png" height="100px" /></a>' % (self.outro_video.filename_root, self.outro_video.filename_root))
+        else:
+            return mark_safe('<img src="/media/uploads/no_image_available.png" height="100px" />')
 
     @property
     def touch_indicator_video_thumbnail(self):
-        if self.touch_indicator_video == '':
-            return ''
-        else:
+        file = Path("media/uploads/entice_mode/video_list/touch_indicator_video/thumbnails/%s_thumbnail.png" % self.touch_indicator_video.filename_root)
+        if file.is_file():
             return mark_safe('<a href="/media/uploads/entice_mode/video_list/touch_indicator_video/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/entice_mode/video_list/touch_indicator_video/thumbnails/%s_thumbnail.png" height="100px" /></a>' % (self.touch_indicator_video.filename_root, self.touch_indicator_video.filename_root))
+        else:
+            return mark_safe('<img src="/media/uploads/no_image_available.png" height="100px" />')
 
     @property
     def background_vignette_video_thumbnail(self):
-        if self.background_vignette_video == '':
-            return ''
-        else:
+        file = Path("media/uploads/entice_mode/video_list/background_vignette_video/thumbnails/%s_thumbnail.png" % self.background_vignette_video.filename_root)
+        if file.is_file():
             return mark_safe('<a href="/media/uploads/entice_mode/video_list/background_vignette_video/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/entice_mode/video_list/background_vignette_video/thumbnails/%s_thumbnail.png" height="100px" /></a>' % (self.background_vignette_video.filename_root, self.background_vignette_video.filename_root))
+        else:
+            return mark_safe('<img src="/media/uploads/no_image_available.png" height="100px" />')
 
 
 @receiver(post_save, sender=Sequence)

@@ -12,6 +12,7 @@ from django.utils.html import escape
 from django.http import HttpResponse
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.core.exceptions import ValidationError
+from pathlib import Path
 
 
 CONTENT_TYPES = (
@@ -75,10 +76,11 @@ class ContentCard(models.Model):
 
     @property
     def thumbnail(self):
-        if self.video is None:
-            return ''
-        else:
+        file = Path("media/uploads/main_menu/content_card/videos/thumbnails/%s_thumbnail.png" % self.video.filename_root)
+        if file.is_file():
             return mark_safe('<a href="/media/uploads/main_menu/content_card/videos/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/main_menu/content_card/videos/thumbnails/%s_thumbnail.png" width="200" /></a>' % (self.video.filename_root, self.video.filename_root))
+        else:
+            return mark_safe('<img src="/media/uploads/no_image_available.png" height="100px" />')
 
     def parent(self):
         x = '<br> '.join([mark_safe('<a href="/mainmenu/contentgroup/%s/change/">%s</a>' % (p.id, p)) for p in self.contentgroup_set.all()])

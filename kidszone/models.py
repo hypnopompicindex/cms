@@ -7,6 +7,7 @@ import os
 from django.utils.safestring import mark_safe
 from cms.settings import BASE_DIR
 from filebrowser.settings import ADMIN_THUMBNAIL
+from pathlib import Path
 
 
 class Video(models.Model):
@@ -25,10 +26,11 @@ class Video(models.Model):
         return self.title
 
     def thumbnail(self):
-        if self.id is None:
-            return ''
-        else:
+        file = Path("media/uploads/kids_zone/videos/thumbnails/%s_thumbnail.png" % self.video.filename_root)
+        if file.is_file():
             return mark_safe('<a href="/media/uploads/kids_zone/videos/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/kids_zone/videos/thumbnails/%s_thumbnail.png" height="100px" /></a>' % (self.video.filename_root, self.video.filename_root))
+        else:
+            return mark_safe('<img src="/media/uploads/no_image_available.png" height="100px" />')
     thumbnail.short_description = "Video"
 
     def image_thumbnail(self):

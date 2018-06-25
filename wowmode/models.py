@@ -6,6 +6,7 @@ from moviepy.editor import VideoFileClip
 import os
 from django.utils.safestring import mark_safe
 from cms.settings import BASE_DIR
+from pathlib import Path
 
 
 class Videolist(models.Model):
@@ -40,10 +41,11 @@ class Video(models.Model):
 
     @property
     def thumbnail(self):
-        if self.id is None:
-            return ''
+        file = Path("media/uploads/wow_mode/playlist/video/thumbnails/%s_thumbnail.png" % self.file.filename_root)
+        if file.is_file():
+            return mark_safe('<a href="/media/uploads/wow_mode/playlist/video/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/wow_mode/playlist/video/thumbnails/%s_thumbnail.png" height="100px" /></a>' % (self.file.filename_root, self.file.filename_root))
         else:
-            return mark_safe('<a href="/media/uploads/wow_mode/playlist/video/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/wow_mode/playlist/video/thumbnails/%s_thumbnail.png" height="100px" />' % (self.file.filename_root, self.file.filename_root))
+            return mark_safe('<img src="/media/uploads/no_image_available.png" height="100px" />')
 
 
 @receiver(post_save, sender=Video, dispatch_uid="create_thumbnail")
