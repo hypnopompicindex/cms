@@ -1,6 +1,6 @@
 from wowmode.models import Videolist, Video
 from rest_framework import viewsets
-from wowmode.api.serializers import VideolistSerializer, VideoSerializer
+from wowmode.api.serializers import *
 
 
 class VideoViewSet(viewsets.ModelViewSet):
@@ -11,3 +11,8 @@ class VideoViewSet(viewsets.ModelViewSet):
 class VideolistViewSet(viewsets.ModelViewSet):
     queryset = Videolist.objects.all().order_by('order')
     serializer_class = VideolistSerializer
+
+
+class VideoFileViewSet(viewsets.ModelViewSet):
+    queryset = Video.objects.all().order_by('order')
+    serializer_class = VideoFileSerializer

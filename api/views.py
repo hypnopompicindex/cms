@@ -1,6 +1,7 @@
 from drf_multiple_model.views import ObjectMultipleModelAPIView, FlatMultipleModelAPIView
-from wowmode.api.serializers import VideolistSerializer
-from wowmode.models import Videolist
+from wowmode.api.serializers import *
+from wowmode.models import Videolist, Video
+from wowmode.models import Video as WowModeVideo
 from enticemode.api.serializers import *
 from enticemode.models import Sequence
 from mainmenu.api.serializers import ContentGroupSerializer
@@ -42,4 +43,5 @@ class AllMediaView(FlatMultipleModelAPIView):
         {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceBackgroundVignetteVideoSerializer},
         {'queryset': ContentStyling.objects.all().distinct(), 'serializer_class': ContentStylingImageSerializer},
         {'queryset': Presentation.objects.all(), 'serializer_class': PresentationImageOverlaySerializer},
+        {'queryset': WowModeVideo.objects.all(), 'serializer_class': VideoFileSerializer},
     )
