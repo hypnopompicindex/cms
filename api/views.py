@@ -7,7 +7,7 @@ from mainmenu.api.serializers import ContentGroupSerializer
 from mainmenu.models import ContentGroup
 from kidszone.api.serializers import *
 from kidszone.models import Video, Theme
-from presentationmode.api.serializers import PresentationSerializer
+from presentationmode.api.serializers import *
 from presentationmode.models import Presentation
 from globalsettings.api.serializers import *
 from globalsettings.models import ContentStyling, VideoWall
@@ -25,8 +25,6 @@ class AllAPIView(ObjectMultipleModelAPIView):
          'label': 'Content Styling',},
         {'queryset': VideoWall.objects.all(), 'serializer_class': VideoWallSerializer,
          'label': 'Video Wall',},
-        {'queryset': VideoWall.objects.all(), 'serializer_class': VideoWallSerializer,
-         'label': 'Video Wall', },
     )
 
 
@@ -43,4 +41,5 @@ class AllMediaView(FlatMultipleModelAPIView):
         {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceTouchIndicatorVideoSerializer},
         {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceBackgroundVignetteVideoSerializer},
         {'queryset': ContentStyling.objects.all().distinct(), 'serializer_class': ContentStylingImageSerializer},
+        {'queryset': Presentation.objects.all(), 'serializer_class': PresentationImageOverlaySerializer},
     )
