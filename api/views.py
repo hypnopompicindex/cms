@@ -1,4 +1,4 @@
-from drf_multiple_model.views import ObjectMultipleModelAPIView
+from drf_multiple_model.views import ObjectMultipleModelAPIView, FlatMultipleModelAPIView
 from wowmode.api.serializers import VideolistSerializer
 from wowmode.models import Videolist
 from enticemode.api.serializers import SequenceSerializer
@@ -27,12 +27,19 @@ class AllAPIView(ObjectMultipleModelAPIView):
          'label': 'Video Wall',},
         {'queryset': VideoWall.objects.all(), 'serializer_class': VideoWallSerializer,
          'label': 'Video Wall', },
-        {'queryset': Video.objects.all(), 'serializer_class': VideoVideoTimestampSerializer,
+    )
+
+
+class AllMediaView(FlatMultipleModelAPIView):
+    add_model_type = True
+
+    querylist = (
+        {'queryset': Video.objects.all().distinct(), 'serializer_class': VideoVideoTimestampSerializer,
          'label': 'Kids Zone Video Video Media', },
-        {'queryset': Video.objects.all(), 'serializer_class': VideoImageTimestampSerializer,
+        {'queryset': Video.objects.all().distinct(), 'serializer_class': VideoImageTimestampSerializer,
          'label': 'Kids Zone Video Image Media', },
-        {'queryset': Theme.objects.all(), 'serializer_class': ThemeBackgroundImageTimestampSerializer,
+        {'queryset': Theme.objects.all().distinct(), 'serializer_class': ThemeBackgroundImageTimestampSerializer,
          'label': 'Kids Zone Theme Background Image Media', },
-        {'queryset': Theme.objects.all(), 'serializer_class': ThemeBubbleImageTimestampSerializer,
+        {'queryset': Theme.objects.all().distinct(), 'serializer_class': ThemeBubbleImageTimestampSerializer,
          'label': 'Kids Zone Theme Bubble Image Media', },
     )
