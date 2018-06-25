@@ -8,6 +8,27 @@ class ContentGallerySerializer(serializers.ModelSerializer):
         fields = ('title', 'priority', 'gallery_image')
 
 
+class ContentGalleryImageSerializer(serializers.ModelSerializer):
+    media = serializers.SerializerMethodField('get_media_path')
+    media_timestamp = serializers.SerializerMethodField('get_media_update')
+
+    class Meta:
+        model = ContentGallery
+        fields = ('media', 'media_timestamp')
+
+    def get_media_path(self, obj):
+        if obj.gallery_image == '':
+            pass
+        else:
+            return str(obj.gallery_image)
+
+    def get_media_update(self, obj):
+        if obj.gallery_image == '':
+            pass
+        else:
+            return str(obj.gallery_image.date)
+
+
 class ContentLabelSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContentLabel
@@ -40,3 +61,9 @@ class ContentGroupSerializer(serializers.ModelSerializer):
         model = ContentGroup
         fields = ('id', 'title', 'button_image', 'active', 'secret', 'lft', 'rght', 'tree_id', 'level', 'parent',  'content_group', 'card')
 
+
+class ContentGroupButtonImageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ContentGroup
+        fields = ('media', 'media_timestamp')

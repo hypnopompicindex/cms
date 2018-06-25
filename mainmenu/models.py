@@ -187,6 +187,14 @@ class ContentGroup(MPTTModel):
 #        y = ([str(p.id) for p in self.children.all()])
         return mark_safe(x)
 
+    @property
+    def media(self):
+        return str(self.button_image)
+
+    @property
+    def media_timestamp(self):
+        return str(self.button_image.date)
+
 
 class ContentGroupCard(models.Model):
     title = models.CharField(max_length=255)

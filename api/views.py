@@ -4,8 +4,8 @@ from wowmode.models import Videolist, Video
 from wowmode.models import Video as WowModeVideo
 from enticemode.api.serializers import *
 from enticemode.models import Sequence
-from mainmenu.api.serializers import ContentGroupSerializer
-from mainmenu.models import ContentGroup
+from mainmenu.api.serializers import *
+from mainmenu.models import ContentGroup, ContentGallery
 from kidszone.api.serializers import *
 from kidszone.models import Video, Theme
 from presentationmode.api.serializers import *
@@ -44,4 +44,6 @@ class AllMediaView(FlatMultipleModelAPIView):
         {'queryset': ContentStyling.objects.all().distinct(), 'serializer_class': ContentStylingImageSerializer},
         {'queryset': Presentation.objects.all(), 'serializer_class': PresentationImageOverlaySerializer},
         {'queryset': WowModeVideo.objects.all(), 'serializer_class': VideoFileSerializer},
+        {'queryset': ContentGallery.objects.all(), 'serializer_class': ContentGalleryImageSerializer},
+        {'queryset': ContentGroup.objects.all(), 'serializer_class': ContentGroupButtonImageSerializer},
     )

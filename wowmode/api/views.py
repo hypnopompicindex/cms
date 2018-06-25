@@ -14,5 +14,5 @@ class VideolistViewSet(viewsets.ModelViewSet):
 
 
 class VideoFileViewSet(viewsets.ModelViewSet):
-    queryset = Video.objects.all().order_by('order')
+    queryset = Video.objects.all()
     serializer_class = VideoFileSerializer
