@@ -88,6 +88,30 @@ class ContentCard(models.Model):
     def video_path(self):
         return self.video.path
 
+    @property
+    def media(self):
+        return str(self.video)
+
+    @property
+    def media_timestamp(self):
+        return str(self.video.date)
+
+    @property
+    def media_button_image(self):
+        return str(self.button_image)
+
+    @property
+    def media_button_image_timestamp(self):
+        return str(self.button_image.date)
+
+    @property
+    def media_gradient_overlay(self):
+        return str(self.gradient_overlay)
+
+    @property
+    def media_gradient_overlay_timestamp(self):
+        return str(self.gradient_overlay.date)
+
     def clean(self):
         super(ContentCard, self).clean()
         msg = "This field is required."

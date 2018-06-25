@@ -46,4 +46,7 @@ class AllMediaView(FlatMultipleModelAPIView):
         {'queryset': WowModeVideo.objects.all(), 'serializer_class': VideoFileSerializer},
         {'queryset': ContentGallery.objects.all(), 'serializer_class': ContentGalleryImageSerializer},
         {'queryset': ContentGroup.objects.all(), 'serializer_class': ContentGroupButtonImageSerializer},
+        {'queryset': ContentCard.objects.all(), 'serializer_class': ContentCardVideoSerializer},
+        {'queryset': ContentCard.objects.all(), 'serializer_class': ContentCardButtonImageSerializer},
+        {'queryset': ContentCard.objects.all(), 'serializer_class': ContentCardGradientOverlaySerializer},
     )

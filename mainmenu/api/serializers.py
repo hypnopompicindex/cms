@@ -1,6 +1,6 @@
 from mainmenu.models import ContentGroup, ContentCard, ContentGallery, ContentGroupCard, ContentLabel
 from rest_framework import serializers
-
+import os, time
 
 class ContentGallerySerializer(serializers.ModelSerializer):
     class Meta:
@@ -41,6 +41,27 @@ class ContentCardSerializer(serializers.ModelSerializer):
     class Meta:
         model = ContentCard
         fields = ('id', 'title', 'button_image', 'creation_date', 'active', 'date_override', 'content_type', 'invert_content_view', 'text_header', 'text', 'video', 'text_position', 'gradient_overlay', 'galleries')
+
+
+class ContentCardVideoSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ContentCard
+        fields = ('media', 'media_timestamp')
+
+
+class ContentCardButtonImageSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ContentCard
+        fields = ('media_button_image', 'media_button_image_timestamp')
+
+
+class ContentCardGradientOverlaySerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = ContentCard
+        fields = ('media_gradient_overlay', 'media_gradient_overlay_timestamp')
 
 
 class ContentGroupCardSerializer(serializers.ModelSerializer):

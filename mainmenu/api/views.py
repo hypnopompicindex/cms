@@ -1,4 +1,4 @@
-from mainmenu.models import ContentGroup, ContentGallery
+from mainmenu.models import ContentGroup, ContentGallery, ContentCard
 from rest_framework import viewsets
 from mainmenu.api.serializers import *
 
@@ -16,3 +16,18 @@ class ContentGalleryViewSet(viewsets.ModelViewSet):
 class ContentGroupButtonImageViewSet(viewsets.ModelViewSet):
     queryset = ContentGroup.objects.all()
     serializer_class = ContentGroupButtonImageSerializer
+
+
+class ContentCardVideoViewSet(viewsets.ModelViewSet):
+    queryset = ContentCard.objects.all()
+    serializer_class = ContentCardVideoSerializer
+
+
+class ContentCardButtonImageViewSet(viewsets.ModelViewSet):
+    queryset = ContentCard.objects.all()
+    serializer_class = ContentCardButtonImageSerializer
+
+
+class ContentCardGradientOverlayViewSet(viewsets.ModelViewSet):
+    queryset = ContentCard.objects.all()
+    serializer_class = ContentCardGradientOverlaySerializer
