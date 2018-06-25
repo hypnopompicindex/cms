@@ -5,7 +5,7 @@ from enticemode.api.serializers import SequenceSerializer
 from enticemode.models import Sequence
 from mainmenu.api.serializers import ContentGroupSerializer
 from mainmenu.models import ContentGroup
-from kidszone.api.serializers import VideoSerializer, ThemeSerializer
+from kidszone.api.serializers import VideoSerializer, ThemeSerializer, VideoVideoTimestampSerializer, VideoImageTimestampSerializer, ThemeBackgroundImageTimestampSerializer, ThemeBubbleImageTimestampSerializer
 from kidszone.models import Video, Theme
 from presentationmode.api.serializers import PresentationSerializer
 from presentationmode.models import Presentation
@@ -21,6 +21,18 @@ class AllAPIView(ObjectMultipleModelAPIView):
         {'queryset': Theme.objects.all(), 'serializer_class': ThemeSerializer, 'label': 'Kids Zone Themes',},
         {'queryset': Video.objects.all(), 'serializer_class': VideoSerializer, 'label': 'Kids Zone Themes Video',},
         {'queryset': Presentation.objects.all(), 'serializer_class': PresentationSerializer, 'label': 'Presentation Mode',},
-        {'queryset': ContentStyling.objects.all(), 'serializer_class': ContentStylingSerializer, 'label': 'Content Styling',},
-        {'queryset': VideoWall.objects.all(), 'serializer_class': VideoWallSerializer, 'label': 'Video Wall',},
+        {'queryset': ContentStyling.objects.all(), 'serializer_class': ContentStylingSerializer,
+         'label': 'Content Styling',},
+        {'queryset': VideoWall.objects.all(), 'serializer_class': VideoWallSerializer,
+         'label': 'Video Wall',},
+        {'queryset': VideoWall.objects.all(), 'serializer_class': VideoWallSerializer,
+         'label': 'Video Wall', },
+        {'queryset': Video.objects.all(), 'serializer_class': VideoVideoTimestampSerializer,
+         'label': 'Kids Zone Video Video Media', },
+        {'queryset': Video.objects.all(), 'serializer_class': VideoImageTimestampSerializer,
+         'label': 'Kids Zone Video Image Media', },
+        {'queryset': Theme.objects.all(), 'serializer_class': ThemeBackgroundImageTimestampSerializer,
+         'label': 'Kids Zone Theme Background Image Media', },
+        {'queryset': Theme.objects.all(), 'serializer_class': ThemeBubbleImageTimestampSerializer,
+         'label': 'Kids Zone Theme Bubble Image Media', },
     )
