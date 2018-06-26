@@ -71,11 +71,25 @@ class ContentGroupAdmin(DjangoMpttAdmin):
     list_display = ('title',)
     readonly_fields = ('subgroups',)
     ordering = ('title',)
-    fieldsets = (
-        ('General', {
-            'fields': ('title','button_image', 'parent', 'subgroups', 'secret', 'active'),
-        }),
-    )
     inlines = [
         ContentGroupCardInline,
     ]
+
+    class Media:
+        js = ('mainmenu/js/base2.js',)
+
+    def get_queryset(self, request):
+        qs = super().get_queryset(request)
+        qs2 = super().get_queryset(request).filter(secret=False)
+        if request.user.is_superuser:
+            return qs
+        else:
+            return qs2
+
+    def get_form(self, request, obj=None, **kwargs):
+        if request.user.is_superuser:
+            self.fields = ['title', 'button_image', 'parent', 'subgroups', 'secret', 'active']
+        else:
+            self.fields = ['title', 'button_image', 'parent', 'subgroups', 'active']
+        form = super(ContentGroupAdmin, self).get_form(request, obj, **kwargs)
+        return form
