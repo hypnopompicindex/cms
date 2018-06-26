@@ -9,3 +9,6 @@ class PresentationAdmin(SortableAdminMixin, admin.ModelAdmin):
     list_editable = ('active',)
     readonly_fields = ('image_thumbnail',)
     fields = ('title', 'image_overlay', 'start_date', 'end_date', 'active')
+
+    class Media:
+        js = ('mainmenu/js/base_gallery.js',)

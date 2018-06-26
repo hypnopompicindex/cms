@@ -13,6 +13,9 @@ class ContentGalleryInline(SortableInlineAdminMixin, admin.TabularInline):
     model = ContentGallery
     fields = ('priority', 'gallery_image')
 
+    class Media:
+        js = ('mainmenu/js/base_gallery.js',)
+
 
 class ContentCardGroupInline(admin.TabularInline):
     model = ContentGroupCard
