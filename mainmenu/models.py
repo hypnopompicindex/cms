@@ -202,8 +202,23 @@ class ContentGroup(MPTTModel):
         verbose_name = 'Content Groups'
         verbose_name_plural = "Content Groups"
 
-    def __str__(self):
-        return self.title
+#    def __str__(self):
+#        return '%s %s %s %s %s' % (str(self.title.upper()), 'Secret:', self.secret,  'Active:', self.active)
+
+    @property
+    def title_for_admin(self):
+        if self.parent is None:
+            if self.secret is False and self.active is True:
+                return mark_safe('<span style="color:black;">%s</span>' % (self.title))
+            if self.secret is False and self.active is False:
+                return mark_safe('<span style="color:#a1a1a1;">%s</span>' % (self.title))
+            if self.secret is True and self.active is True:
+                return mark_safe('<span style="color:#1445e5;">%s</span>' % (self.title))
+            if self.secret is True and self.active is False:
+                return mark_safe('<span style="color: #9baeea;">%s</span>' % (self.title))
+        else:
+            return '%s' % (self.title)
+
 
     @property
     def subgroups(self):

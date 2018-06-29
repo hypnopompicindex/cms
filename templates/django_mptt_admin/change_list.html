@@ -9,6 +9,7 @@
 {% block search %}{% endblock %}
 
 {% block result_list %}
+
     <div
         id="tree"
         class="block-style"
@@ -23,6 +24,10 @@
         {% endif %}
         data-use_context_menu="{{ use_context_menu }}"
     ></div>
+    <div><span style="font-size:20px;">Legend:</span>
+        <span style="color:black;">Main Content</span>
+        <span style="color:#1445e5;">Secret Content</span>
+    </div>
 {% endblock %}
 
 {% block filters %}
