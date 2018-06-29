@@ -202,8 +202,8 @@ class ContentGroup(MPTTModel):
         verbose_name = 'Content Groups'
         verbose_name_plural = "Content Groups"
 
-#    def __str__(self):
-#        return '%s %s %s %s %s' % (str(self.title.upper()), 'Secret:', self.secret,  'Active:', self.active)
+    def __str__(self):
+        return self.title
 
     @property
     def title_for_admin(self):
