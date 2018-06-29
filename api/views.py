@@ -52,3 +52,10 @@ class AllMediaView(FlatMultipleModelAPIView):
         {'queryset': ContentCard.objects.all(), 'serializer_class': ContentCardButtonImageSerializer},
         {'queryset': ContentCard.objects.all(), 'serializer_class': ContentCardGradientOverlaySerializer},
     )
+
+
+class PublishAPIView(ObjectMultipleModelAPIView):
+    querylist = (
+        {'queryset': Publish.objects.all(), 'serializer_class': PublishSerializer,
+         'label': 'Publish', },
+    )

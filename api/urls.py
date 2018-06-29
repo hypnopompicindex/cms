@@ -22,5 +22,6 @@ router.register('videowall', VideoWallViewSet)
 urlpatterns = [
     path('all/', views.AllAPIView.as_view()),
     path('allmedia/', views.AllMediaView.as_view()),
+    path('publish/', views.PublishAPIView.as_view()),
     path('', include(router.urls)),
 ]
