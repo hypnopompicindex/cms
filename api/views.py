@@ -26,6 +26,8 @@ class AllAPIView(ObjectMultipleModelAPIView):
          'label': 'Content Styling',},
         {'queryset': VideoWall.objects.all(), 'serializer_class': VideoWallSerializer,
          'label': 'Video Wall',},
+        {'queryset': Publish.objects.all(), 'serializer_class': PublishSerializer,
+         'label': 'Publish', },
     )
 
 

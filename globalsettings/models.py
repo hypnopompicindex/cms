@@ -31,3 +31,18 @@ class VideoWall(models.Model):
 
     def __str__(self):
         return 'Record'
+
+
+class Publish(models.Model):
+    videowall = models.ForeignKey(VideoWall, on_delete=models.CASCADE)
+    publish = models.DateTimeField('Last published', auto_now=True)
+
+    class Meta:
+        verbose_name = 'CMS Publish Date'
+        verbose_name_plural = "CMS Publish Date"
+
+    def __str__(self):
+        return 'Last published'
+
+    def has_add_permission(self, request):
+        return False

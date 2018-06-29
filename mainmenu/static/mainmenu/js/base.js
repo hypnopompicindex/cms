@@ -144,3 +144,9 @@
         });
     });
 })(django.jQuery);
+
+(function($) {
+    $(function() {
+        $("#result_list th:first-child + th, #result_list td:first-child + td").css("display", "none")
+    });
+})(django.jQuery);
