@@ -39,7 +39,7 @@ class Publish(models.Model):
 
     class Meta:
         verbose_name = 'CMS Publish Date'
-        verbose_name_plural = "CMS Publish Date"
+        verbose_name_plural = "Publish CMS"
 
     def __str__(self):
         return 'Last published'
