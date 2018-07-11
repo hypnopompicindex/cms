@@ -57,7 +57,7 @@ class Theme(models.Model):
 
     def background_image_thumbnail(self):
         if self.background_image and self.background_image.filetype == "Image":
-            return mark_safe('<a href="%s" target="_blank"><img src="%s" height="100px" width="100px" /></a>' % (self.background_image.url, self.background_image.url))
+            return mark_safe('<a href="%s" target="_blank"><img src="%s" height="50px" /></a>' % (self.background_image.url, self.background_image.url))
         else:
             return ""
     background_image_thumbnail.short_description = "Background Image"
