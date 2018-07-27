@@ -12,7 +12,7 @@ from pathlib import Path
 
 class Video(models.Model):
     title = models.CharField(max_length=255)
-    video = FileBrowseField("Video", max_length=200, directory="kids_zone/videos/", extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'])
+    video = FileBrowseField("Video", max_length=200, directory="kids_zone/videos/")
     image = FileBrowseField("Image", max_length=200, directory="kids_zone/images/",
                             extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'])
     order = models.PositiveIntegerField(default=0, blank=False, null=False)

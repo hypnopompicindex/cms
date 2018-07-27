@@ -28,7 +28,7 @@ class Videolist(models.Model):
 class Video(models.Model):
     playlist = models.ForeignKey(Videolist, related_name='videos', on_delete=models.CASCADE)
 #    title = models.CharField(max_length=255)
-    file = FileBrowseField("Video", max_length=200, directory="wow_mode/playlist/video", extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'])
+    file = FileBrowseField("Video", max_length=200, directory="wow_mode/playlist/video")
 #    thumbnail = models.CharField(max_length=255, blank=True, null=True)
     order = models.PositiveIntegerField(default=0, blank=False, null=False)
 

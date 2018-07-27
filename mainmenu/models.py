@@ -58,7 +58,6 @@ class ContentCard(models.Model):
     text = RichTextField(blank=True, null=True)
     video = FileBrowseField("Video", max_length=200,
                             directory="main_menu/content_card/videos/",
-                            extensions=['.mov', '.mp4', '.m4v', '.webm', '.wmv', '.mpeg', '.mpg', '.avi', '.rm', '.mkv'],
                             blank=True, null=True)
 #    secret = models.BooleanField(default=False)
     button_image = FileBrowseField(max_length=200, directory="main_menu/content_card/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image')
@@ -196,7 +195,9 @@ class ContentGroup(MPTTModel):
     )
     active = models.BooleanField(default=False)
     secret = models.BooleanField(default=False)
-    button_image = FileBrowseField(max_length=200, directory="main_menu/content_group/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image')
+    button_image = FileBrowseField(max_length=200, directory="main_menu/content_group/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image #1')
+    button_image_2 = FileBrowseField(max_length=200, directory="main_menu/content_group/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image #2')
+    button_image_3 = FileBrowseField(max_length=200, directory="main_menu/content_group/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image #3')
 
     class Meta:
         verbose_name = 'Content Groups'
@@ -218,7 +219,6 @@ class ContentGroup(MPTTModel):
                 return mark_safe('<span style="color: #9baeea;">%s</span>' % (self.title))
         else:
             return '%s' % (self.title)
-
 
     @property
     def subgroups(self):
@@ -249,6 +249,7 @@ class ContentGroupCard(models.Model):
         ordering = ('creation_date',)
         verbose_name = 'Content Card'
         verbose_name_plural = "Content Cards"
+        unique_together = ('content_card', 'content_group')
 
     def __str__(self):
         return self.title

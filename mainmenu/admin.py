@@ -93,8 +93,8 @@ class ContentGroupAdmin(DjangoMpttAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         if request.user.is_superuser:
-            self.fields = ['title', 'button_image', 'parent', 'subgroups', 'secret', 'active']
+            self.fields = ['title', 'button_image', 'button_image_2', 'button_image_3', 'parent', 'subgroups', 'secret', 'active']
         else:
-            self.fields = ['title', 'button_image', 'parent', 'subgroups', 'active']
+            self.fields = ['title', 'button_image', 'button_image_2', 'button_image_3', 'parent', 'subgroups', 'active']
         form = super(ContentGroupAdmin, self).get_form(request, obj, **kwargs)
         return form

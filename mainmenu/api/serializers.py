@@ -80,7 +80,7 @@ class ContentGroupSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ContentGroup
-        fields = ('id', 'title', 'button_image', 'active', 'secret', 'lft', 'rght', 'tree_id', 'level', 'parent',  'content_group', 'card')
+        fields = ('id', 'title', 'button_image',  'button_image_2',  'button_image_3','active', 'secret', 'lft', 'rght', 'tree_id', 'level', 'parent',  'content_group', 'card')
 
 
 class ContentGroupButtonImageSerializer(serializers.ModelSerializer):
