@@ -32,7 +32,7 @@ POSITION = (
 
 
 class ContentLabel(models.Model):
-    label = models.CharField(max_length=255)
+    label = models.CharField(max_length=255, unique=True)
 
     class Meta:
         verbose_name = 'Content Labels'
