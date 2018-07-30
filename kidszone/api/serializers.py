@@ -86,13 +86,13 @@ class ThemeBubbleImageTimestampSerializer(serializers.ModelSerializer):
         fields = ('media', 'media_timestamp')
 
     def get_media_path(self, obj):
-        if obj.bubble_image == '':
+        if obj.bubble_image_1 == '':
             pass
         else:
-            return str(obj.bubble_image)
+            return str(obj.bubble_image_1)
 
     def get_media_update(self, obj):
-        if obj.bubble_image == '':
+        if obj.bubble_image_1 == '':
             pass
         else:
-            return str(obj.bubble_image.date)
+            return str(obj.bubble_image_1.date)

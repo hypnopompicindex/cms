@@ -16,9 +16,9 @@ class VideoAdmin(SortableAdminMixin, admin.ModelAdmin):
 
 @admin.register(Theme)
 class ThemeAdmin(SortableAdminMixin, admin.ModelAdmin):
-    list_display = ['theme', 'background_image_thumbnail', 'bubble_image_thumbnail']
-    readonly_fields = ('background_image_thumbnail', 'bubble_image_thumbnail')
-    fields = ('theme', 'background_image', 'bubble_image')
+    list_display = ['theme', 'background_image_thumbnail', 'bubble_image_thumbnail_1', 'bubble_image_thumbnail_2', 'bubble_image_thumbnail_3']
+    readonly_fields = ('background_image_thumbnail', 'bubble_image_thumbnail_1', 'bubble_image_thumbnail_2', 'bubble_image_thumbnail_3')
+    fields = ('theme', 'background_image', 'bubble_image_1', 'bubble_image_2', 'bubble_image_3')
 
     class Media:
         js = ('mainmenu/js/base_gallery.js',)

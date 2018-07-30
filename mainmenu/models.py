@@ -195,9 +195,7 @@ class ContentGroup(MPTTModel):
     )
     active = models.BooleanField(default=False)
     secret = models.BooleanField(default=False)
-    button_image = FileBrowseField(max_length=200, directory="main_menu/content_group/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image #1')
-    button_image_2 = FileBrowseField(max_length=200, directory="main_menu/content_group/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image #2')
-    button_image_3 = FileBrowseField(max_length=200, directory="main_menu/content_group/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image #3')
+    button_image = FileBrowseField(max_length=200, directory="main_menu/content_group/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image')
 
     class Meta:
         verbose_name = 'Content Groups'
