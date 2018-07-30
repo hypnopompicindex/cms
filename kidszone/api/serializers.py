@@ -96,3 +96,45 @@ class ThemeBubbleImageTimestampSerializer(serializers.ModelSerializer):
             pass
         else:
             return str(obj.bubble_image_1.date)
+
+
+class ThemeBubbleImage2TimestampSerializer(serializers.ModelSerializer):
+    media = serializers.SerializerMethodField('get_media_path')
+    media_timestamp = serializers.SerializerMethodField('get_media_update')
+
+    class Meta:
+        model = Theme
+        fields = ('media', 'media_timestamp')
+
+    def get_media_path(self, obj):
+        if obj.bubble_image_2 == '':
+            pass
+        else:
+            return str(obj.bubble_image_2)
+
+    def get_media_update(self, obj):
+        if obj.bubble_image_2 == '':
+            pass
+        else:
+            return str(obj.bubble_image_2.date)
+
+
+class ThemeBubbleImage3TimestampSerializer(serializers.ModelSerializer):
+    media = serializers.SerializerMethodField('get_media_path')
+    media_timestamp = serializers.SerializerMethodField('get_media_update')
+
+    class Meta:
+        model = Theme
+        fields = ('media', 'media_timestamp')
+
+    def get_media_path(self, obj):
+        if obj.bubble_image_3 == '':
+            pass
+        else:
+            return str(obj.bubble_image_3)
+
+    def get_media_update(self, obj):
+        if obj.bubble_image_3 == '':
+            pass
+        else:
+            return str(obj.bubble_image_3.date)

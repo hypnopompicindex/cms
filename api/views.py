@@ -39,6 +39,8 @@ class AllMediaView(FlatMultipleModelAPIView):
         {'queryset': Video.objects.all().distinct(), 'serializer_class': VideoImageTimestampSerializer},
         {'queryset': Theme.objects.all().distinct(), 'serializer_class': ThemeBackgroundImageTimestampSerializer},
         {'queryset': Theme.objects.all().distinct(), 'serializer_class': ThemeBubbleImageTimestampSerializer},
+        {'queryset': Theme.objects.all().distinct(), 'serializer_class': ThemeBubbleImage2TimestampSerializer},
+        {'queryset': Theme.objects.all().distinct(), 'serializer_class': ThemeBubbleImage3TimestampSerializer},
         {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceIntroVideoSerializer},
         {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceOutroVideoSerializer},
         {'queryset': Sequence.objects.all().distinct(), 'serializer_class': SequenceTouchIndicatorVideoSerializer},
