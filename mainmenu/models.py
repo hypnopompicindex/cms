@@ -22,6 +22,7 @@ CONTENT_TYPES = (
     ('VIDEO', 'Video'),
     ('VIDEO_TEXT', 'Video and Text'),
     ('VIDEO_TEXT_OVERLAY', 'Video with Text Overlay'),
+    ('IMAGE_TEXT_OVERLAY', 'Image with Text Overlay'),
     ('STOCK CARD', 'Stock Card'),
 )
 
@@ -61,6 +62,7 @@ class ContentCard(models.Model):
                             blank=True, null=True)
 #    secret = models.BooleanField(default=False)
     button_image = FileBrowseField(max_length=200, directory="main_menu/content_card/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image')
+    image = FileBrowseField(max_length=200, directory="main_menu/content_card/image/", blank=True, null=True, verbose_name='Image')
 
     class Meta:
         ordering = ('priority', 'creation_date')
@@ -196,6 +198,7 @@ class ContentGroup(MPTTModel):
     active = models.BooleanField(default=False)
     secret = models.BooleanField(default=False)
     button_image = FileBrowseField(max_length=200, directory="main_menu/content_group/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image')
+    label = models.ManyToManyField(ContentLabel, blank=True, related_name='group_labels')
 
     class Meta:
         verbose_name = 'Content Groups'

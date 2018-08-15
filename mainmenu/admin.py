@@ -12,6 +12,7 @@ class ContentLabelAdmin(admin.ModelAdmin):
 class ContentGalleryInline(SortableInlineAdminMixin, admin.TabularInline):
     model = ContentGallery
     fields = ('priority', 'gallery_image')
+    template = "admin/mainmenu/contentcard/edit_inline/tabular.html"
 
     class Media:
         js = ('mainmenu/js/base_gallery.js',)
@@ -35,7 +36,7 @@ class ContentCardAdmin(SortableAdminMixin, admin.ModelAdmin):
     inlines = [ContentGalleryInline, ContentCardGroupInline]
     fieldsets = (
         ('General', {
-            'fields': ('title', 'button_image', 'parent',  'active', 'date_override', 'content_type', 'text_position', 'text_header', 'gradient_overlay', 'invert_content_view', 'text', 'video', 'thumbnail', 'video_path', 'image_gallery'),
+            'fields': ('title', 'button_image', 'parent',  'active', 'date_override', 'content_type', 'text_position', 'text_header', 'gradient_overlay', 'invert_content_view', 'text', 'video', 'image', 'thumbnail', 'video_path', 'image_gallery'),
         }),
     )
 
@@ -93,8 +94,8 @@ class ContentGroupAdmin(DjangoMpttAdmin):
 
     def get_form(self, request, obj=None, **kwargs):
         if request.user.is_superuser:
-            self.fields = ['title', 'button_image', 'button_image_2', 'button_image_3', 'parent', 'subgroups', 'secret', 'active']
+            self.fields = ['title', 'button_image', 'parent', 'label', 'subgroups', 'secret', 'active']
         else:
-            self.fields = ['title', 'button_image', 'button_image_2', 'button_image_3', 'parent', 'subgroups', 'active']
+            self.fields = ['title', 'button_image', 'parent',  'label', 'subgroups', 'active']
         form = super(ContentGroupAdmin, self).get_form(request, obj, **kwargs)
         return form

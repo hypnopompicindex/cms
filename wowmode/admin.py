@@ -7,7 +7,7 @@ class VideoInline(SortableInlineAdminMixin, admin.TabularInline):
     model = Video
     readonly_fields = ('thumbnail', 'title')
     fields = ('order', 'title', 'file', 'thumbnail')
-
+    template = "admin/wowmode/edit_inline/tabular.html"
 
 @admin.register(Videolist)
 class VideolistAdmin(SortableAdminMixin, admin.ModelAdmin):

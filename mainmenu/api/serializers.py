@@ -40,7 +40,7 @@ class ContentCardSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ContentCard
-        fields = ('id', 'title', 'button_image', 'creation_date', 'active', 'date_override', 'content_type', 'invert_content_view', 'text_header', 'text', 'video', 'text_position', 'gradient_overlay', 'galleries')
+        fields = ('id', 'title', 'button_image', 'creation_date', 'active', 'date_override', 'content_type', 'invert_content_view', 'text_header', 'text', 'video', 'image', 'text_position', 'gradient_overlay', 'galleries')
 
 
 class ContentCardVideoSerializer(serializers.ModelSerializer):
@@ -77,10 +77,11 @@ class ContentGroupCardSerializer(serializers.ModelSerializer):
 class ContentGroupSerializer(serializers.ModelSerializer):
     card = ContentCardSerializer(read_only=True, many=True)
     content_group = ContentGroupCardSerializer(source='contentgroupcard_set', many=True)
+    label = ContentLabelSerializer(read_only=True, many=True)
 
     class Meta:
         model = ContentGroup
-        fields = ('id', 'title', 'button_image_1', 'active', 'secret', 'lft', 'rght', 'tree_id', 'level', 'parent',  'content_group', 'card')
+        fields = ('id', 'title', 'button_image', 'active', 'secret', 'lft', 'rght', 'tree_id', 'level', 'parent',  'label', 'content_group', 'card')
 
 
 class ContentGroupButtonImageSerializer(serializers.ModelSerializer):

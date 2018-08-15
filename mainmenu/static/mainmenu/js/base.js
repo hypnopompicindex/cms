@@ -2,15 +2,17 @@
     $(function() {
         var selectField = $('#id_content_type'),
             image_gallery = $('.field-image_gallery');
+            image = $('.field-image');
             text = $('.field-text');
             text_header = $('.field-text_header');
             video = $('.field-video');
             video_path = $('.field-video_path');
             video_text_overlay = $('.field-video_text_overlay');
+            image_text_overlay = $('.field-image_text_overlay');
             video_text = $('.field-video_text');
             invert_content_view = $('.field-invert_content_view');
             text_position = $('.field-text_position');
-            gradient_overlay = $('.field-overlay_image');
+            gradient_overlay = $('.field-gradient_overlay');
             thumbnail = $('.field-thumbnail');
             linksToCards = $('a[href="#/tab/inline_1/"]');
             gallery = $('a[href="#/tab/inline_0/"]');
@@ -22,6 +24,7 @@
                 text_header.hide();
                 video.hide();
                 video_text_overlay.hide();
+                image.hide();
                 video_text.hide();
                 invert_content_view.hide();
                 gallery.hide();
@@ -38,6 +41,7 @@
                 text_header.hide();
                 video.hide();
                 video_text_overlay.hide();
+                image.hide();
                 video_text.hide();
                 invert_content_view.hide();
                 text_position.hide();
@@ -52,6 +56,7 @@
                 image_gallery.hide();
                 video.hide();
                 video_text_overlay.hide();
+                image.hide();
                 video_text.hide();
                 invert_content_view.hide();
                 gallery.hide();
@@ -69,6 +74,7 @@
                 invert_content_view.hide();
                 video.hide();
                 video_text_overlay.hide();
+                image.hide();
                 video_text.hide();
                 text_position.show();
                 gradient_overlay.hide();
@@ -82,6 +88,7 @@
                 text.hide();
                 text_header.hide();
                 video_text_overlay.hide();
+                image.hide();
                 video_text.hide();
                 invert_content_view.hide();
                 gallery.hide();
@@ -98,6 +105,7 @@
                 invert_content_view.hide();
                 image_gallery.hide();
                 video_text_overlay.hide();
+                image.hide();
                 gallery.hide();
                 text_position.show();
                 gradient_overlay.hide();
@@ -112,6 +120,23 @@
                 image_gallery.hide();
                 video_text.hide();
                 invert_content_view.hide();
+                image.hide();
+                gallery.hide();
+                text_position.show();
+                gradient_overlay.show();
+                thumbnail.show();
+                linksToCards.show();
+                video_path.hide();
+            }
+            if (value === 'IMAGE_TEXT_OVERLAY') {
+                video.hide();
+                image.show();
+                text.show();
+                text_header.show();
+                image_gallery.hide();
+                video_text.hide();
+                invert_content_view.hide();
+                video_text_overlay.hide();
                 gallery.hide();
                 text_position.show();
                 gradient_overlay.show();
@@ -132,6 +157,7 @@
                 thumbnail.hide();
                 linksToCards.show();
                 video_path.hide();
+                image.hide();
             }
         }
 
