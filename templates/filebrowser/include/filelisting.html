@@ -101,7 +101,9 @@
             {% endif %}
 
             {% if fileobject.filetype == "Video" %}
-                <a href="/media/{{ fileobject.head }}/thumbnails/{{ fileobject.filename_root }}_thumbnail.png" class="fb_viewlink" target="_blank"><img src="/media/{{ fileobject.head }}/thumbnails/{{ fileobject.filename_root }}_thumbnail.png" height="100px" title="{% trans 'View Image' %}" /></a>
+
+                <a href="/media/{{ fileobject.head }}/thumbnails/{{ fileobject.filename_root }}_thumbnail.png" class="fb_viewlink" target="_blank"><img onerror='this.style.display="none"' src="/media/{{ fileobject.head }}/thumbnails/{{ fileobject.filename_root }}_thumbnail.png" height="100px" title="{% trans 'View Image' %}" /></a>
+               
             {% endif %}
 
         </td>
