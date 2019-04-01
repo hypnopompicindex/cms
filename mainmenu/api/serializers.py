@@ -40,7 +40,7 @@ class ContentCardSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ContentCard
-        fields = ('id', 'title', 'button_image', 'creation_date', 'active', 'date_override', 'content_type', 'invert_content_view', 'text_header', 'text', 'video', 'image', 'text_position', 'gradient_overlay', 'galleries')
+        fields = ('id', 'title', 'button_image', 'creation_date', 'active', 'date_override', 'content_type', 'invert_content_view', 'text_header', 'text', 'video',  'text_position', 'gradient_overlay', 'galleries')
 
 
 class ContentCardVideoSerializer(serializers.ModelSerializer):

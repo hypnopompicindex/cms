@@ -36,7 +36,7 @@ class ContentCardAdmin(SortableAdminMixin, admin.ModelAdmin):
     inlines = [ContentGalleryInline, ContentCardGroupInline]
     fieldsets = (
         ('General', {
-            'fields': ('title', 'button_image', 'parent',  'active', 'date_override', 'content_type', 'text_position', 'text_header', 'gradient_overlay', 'invert_content_view', 'text', 'video', 'image', 'thumbnail', 'video_path', 'image_gallery'),
+            'fields': ('title', 'button_image', 'parent',  'active', 'date_override', 'content_type', 'text_position', 'text_header', 'gradient_overlay', 'invert_content_view', 'text', 'video', 'thumbnail', 'video_path', 'image_gallery'),
         }),
     )
 

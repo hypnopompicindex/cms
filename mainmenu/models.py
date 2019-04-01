@@ -62,7 +62,7 @@ class ContentCard(models.Model):
                             blank=True, null=True)
 #    secret = models.BooleanField(default=False)
     button_image = FileBrowseField(max_length=200, directory="main_menu/content_card/button_image/", extensions=['.jpg', '.jpeg', '.gif', '.png', '.tif', '.tiff'], blank=True, null=True, verbose_name='Button Image')
-    image = FileBrowseField(max_length=200, directory="main_menu/content_card/image/", blank=True, null=True, verbose_name='Image')
+#    image = FileBrowseField(max_length=200, directory="main_menu/content_card/image/", blank=True, null=True, verbose_name='Image')
 
     class Meta:
         ordering = ('priority', 'creation_date')
@@ -78,7 +78,7 @@ class ContentCard(models.Model):
     @property
     def thumbnail(self):
         file = Path("media/uploads/main_menu/content_card/videos/thumbnails/%s_thumbnail.png" % self.video.filename_root)
-        if file.is_file():
+        if file:
             return mark_safe('<a href="/media/uploads/main_menu/content_card/videos/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/main_menu/content_card/videos/thumbnails/%s_thumbnail.png" width="200" /></a>' % (self.video.filename_root, self.video.filename_root))
         else:
             return mark_safe('<img src="/media/uploads/no_image_available.png" height="100px" />')

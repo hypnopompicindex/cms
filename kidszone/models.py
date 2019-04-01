@@ -27,7 +27,7 @@ class Video(models.Model):
 
     def thumbnail(self):
         file = Path("media/uploads/kids_zone/videos/thumbnails/%s_thumbnail.png" % self.video.filename_root)
-        if file.is_file():
+        if file:
             return mark_safe('<a href="/media/uploads/kids_zone/videos/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/kids_zone/videos/thumbnails/%s_thumbnail.png" height="100px" /></a>' % (self.video.filename_root, self.video.filename_root))
         else:
             return mark_safe('<img src="/media/uploads/no_image_available.png" height="100px" />')

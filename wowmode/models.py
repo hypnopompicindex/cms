@@ -42,7 +42,7 @@ class Video(models.Model):
     @property
     def thumbnail(self):
         file = Path("media/uploads/wow_mode/playlist/video/thumbnails/%s_thumbnail.png" % self.file.filename_root)
-        if file.is_file():
+        if file:
             return mark_safe('<a href="/media/uploads/wow_mode/playlist/video/thumbnails/%s_thumbnail.png" target="_blank"><img src="/media/uploads/wow_mode/playlist/video/thumbnails/%s_thumbnail.png" height="100px" /></a>' % (self.file.filename_root, self.file.filename_root))
         else:
             return mark_safe('<img src="/media/uploads/no_image_available.png" height="100px" />')
